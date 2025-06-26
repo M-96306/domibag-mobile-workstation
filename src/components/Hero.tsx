@@ -23,9 +23,9 @@ export const Hero = () => {
             
             <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-xl">
               A solução <strong>3-em-1</strong> que revoluciona os cuidados domiciliários: 
-              <span className="text-emerald-600 font-semibold"> transporte</span>, 
-              <span className="text-emerald-600 font-semibold"> organização</span> e 
-              <span className="text-emerald-600 font-semibold"> estação de trabalho</span> 
+              <span className="text-emerald-600 font-semibold"> mobilidade</span>, 
+              <span className="text-emerald-600 font-semibold"> ergonomia</span> e 
+              <span className="text-emerald-600 font-semibold"> organização</span> 
               numa única ferramenta.
             </p>
             
