@@ -26,7 +26,7 @@ export const Hero = () => {
               A solução <strong>3-em-1</strong> que revoluciona os cuidados domiciliários: 
               <span className="text-emerald-600 font-semibold"> mobilidade</span>, 
               <span className="text-emerald-600 font-semibold"> ergonomia</span> e 
-              <span className="text-emerald-600 font-semibold"> organização</span> 
+              <span className="text-emerald-600 font-semibold"> organização </span> 
               numa única ferramenta.
             </p>
             
