@@ -1,6 +1,7 @@
 
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play } from 'lucide-react';
+import { ImageGallery } from './ImageGallery';
 
 export const Hero = () => {
   return (
@@ -71,18 +72,7 @@ export const Hero = () => {
           </div>
           
           <div className="relative animate-in slide-in-from-right duration-1000 delay-300">
-            <div className="relative z-10">
-              <img 
-                src="/lovable-uploads/0c1e1838-84ea-477f-88b7-fa6156880b28.png" 
-                alt="Domibag - Solução inovadora para cuidados domiciliários"
-                className="w-full h-auto max-w-lg mx-auto drop-shadow-2xl hover:scale-105 transition-transform duration-700"
-              />
-            </div>
-            
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-200/20 to-green-300/20 blur-3xl transform scale-75 -z-10"></div>
-            
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-emerald-400 to-green-500 rounded-full blur-xl opacity-20 animate-pulse"></div>
-            <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full blur-xl opacity-15 animate-pulse delay-1000"></div>
+            <ImageGallery />
           </div>
         </div>
       </div>
