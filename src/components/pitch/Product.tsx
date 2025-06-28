@@ -4,6 +4,52 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Settings, Package, Navigation, Shield } from 'lucide-react';
 
 export const Product = () => {
+  const generalImages = [
+    {
+      src: "/lovable-uploads/1b712fde-e281-459c-8231-b6417be7e3f3.png",
+      alt: "Domibag - Vista geral frontal"
+    },
+    {
+      src: "/lovable-uploads/02f2aac6-0686-41bf-840a-1525d17c3c28.png",
+      alt: "Domibag - Vista geral lateral"
+    }
+  ];
+
+  const characteristicImages = [
+    {
+      src: "/lovable-uploads/68566bc6-4094-49e5-bb0c-807389bf853f.png",
+      title: "Componente do Sistema Modular",
+      description: "Componente do sistema modular que permite desagregar o módulo"
+    },
+    {
+      src: "/lovable-uploads/dff9f5d5-7925-4c94-bae9-a915080bd92f.png",
+      title: "Pega Ergonómica",
+      description: "Pega ergonómica da Domibag"
+    },
+    {
+      src: "/lovable-uploads/c4518924-fdaf-4c51-969a-ff13133b69ef.png",
+      title: "Tabuleiro de Alumínio Amovível",
+      description: "Tabuleiro de alumínio amovível"
+    },
+    {
+      src: "/lovable-uploads/2221985b-4ec6-4831-8805-19230a064567.png",
+      title: "Tabuleiro de Alumínio Extensível",
+      description: "Tabuleiro de alumínio extensível"
+    },
+    {
+      src: "/lovable-uploads/0ba8a44e-963e-406d-8a4f-0ffa0f4b3083.png",
+      title: "Rodas Triangulares",
+      description: "Rodas triangulares para facilitar a subida de escada"
+    }
+  ];
+
+  const systemImages = [
+    {
+      src: "/lovable-uploads/7ade144f-a467-42e9-8fae-36de94d714d6.png",
+      alt: "Vista de Domibag com o sistema modular - Configurações múltiplas"
+    }
+  ];
+
   return (
     <section className="py-24 bg-white">
       <div className="container mx-auto px-4">
@@ -16,8 +62,26 @@ export const Product = () => {
             Funcionalidades principais que fazem da Domibag uma solução única
           </p>
         </div>
+
+        {/* General Images */}
+        <div className="mb-16">
+          <h3 className="text-3xl font-bold text-center text-gray-900 mb-8">Vista Geral</h3>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {generalImages.map((image, index) => (
+              <div key={index} className="relative group">
+                <div className="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500">
+                  <img 
+                    src={image.src} 
+                    alt={image.alt}
+                    className="w-full h-auto transform hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
         
-        <Tabs defaultValue="workstation" className="max-w-6xl mx-auto">
+        <Tabs defaultValue="workstation" className="max-w-6xl mx-auto mb-16">
           <TabsList className="grid w-full grid-cols-4 mb-12">
             <TabsTrigger value="workstation" className="flex items-center gap-2">
               <Settings className="h-4 w-4" />
@@ -131,6 +195,166 @@ export const Product = () => {
             </Card>
           </TabsContent>
         </Tabs>
+
+        {/* Características da Domibag */}
+        <div className="mb-16">
+          <h3 className="text-4xl font-bold text-center text-gray-900 mb-12">
+            Características da
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-green-600"> Domibag</span>
+          </h3>
+          
+          <div className="grid lg:grid-cols-3 gap-8 mb-12">
+            {characteristicImages.map((image, index) => (
+              <div key={index} className="group">
+                <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
+                  <img 
+                    src={image.src} 
+                    alt={image.title}
+                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                <div className="mt-6 text-center">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">{image.title}</h4>
+                  <p className="text-gray-600 leading-relaxed">{image.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* System Images */}
+          <div className="mb-12">
+            <h4 className="text-2xl font-bold text-center text-gray-900 mb-8">Sistema Modular</h4>
+            <div className="max-w-4xl mx-auto">
+              {systemImages.map((image, index) => (
+                <div key={index} className="relative group">
+                  <div className="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500">
+                    <img 
+                      src={image.src} 
+                      alt={image.alt}
+                      className="w-full h-auto transform hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Principais Características */}
+          <div className="bg-gradient-to-br from-gray-50 to-emerald-50 rounded-3xl p-8">
+            <h4 className="text-3xl font-bold text-center text-gray-900 mb-12">Principais Características da Domibag</h4>
+            
+            <div className="grid lg:grid-cols-2 gap-8">
+              <Card className="h-full">
+                <CardHeader>
+                  <CardTitle className="text-xl text-emerald-600">1. Transporte Ergonómico e Seguro</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div>
+                    <h5 className="font-semibold mb-2">Carcaça Ultra-Resistente:</h5>
+                    <p className="text-gray-600">ABS com 40% de alumínio, resistente a impactos e variações térmicas.</p>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold mb-2">Pega Anatómica com Amortecimento:</h5>
+                    <p className="text-gray-600">Conforto superior, reduzindo a fadiga durante o transporte.</p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="h-full">
+                <CardHeader>
+                  <CardTitle className="text-xl text-emerald-600">2. Estação de Trabalho Ajustável</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div>
+                    <h5 className="font-semibold mb-2">Mecanismo "Travão-Destravão":</h5>
+                    <p className="text-gray-600">Conversão instantânea de mala para mesa.</p>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold mb-2">Altura Regulável:</h5>
+                    <p className="text-gray-600">Três níveis clínicos para postura ergonómica adaptada ao profissional e ao procedimento.</p>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold mb-2">Superfície Esterilizável:</h5>
+                    <p className="text-gray-600">Tampo em alumínio anodizado, compatível com autoclave.</p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="h-full">
+                <CardHeader>
+                  <CardTitle className="text-xl text-emerald-600">3. Mobilidade Todo-o-Terreno</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div>
+                    <h5 className="font-semibold mb-2">Rodas Triangulares Inovadoras:</h5>
+                    <p className="text-gray-600">Supera escadas e obstáculos sem esforço adicional.</p>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold mb-2">Packs de Rodas Opcionais (futuro):</h5>
+                    <p className="text-gray-600">Adaptação a terrenos difíceis, como contextos de catástrofe.</p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="h-full">
+                <CardHeader>
+                  <CardTitle className="text-xl text-emerald-600">4. Armazenamento Inteligente</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div>
+                    <h5 className="font-semibold mb-2">Organização Fixa e Intuitiva:</h5>
+                    <p className="text-gray-600">Acesso rápido e seguro aos materiais essenciais.</p>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold mb-2">Gavetas "Push-to-Open":</h5>
+                    <p className="text-gray-600">Fecho magnético para transporte seguro e abertura facilitada.</p>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold mb-2">Gestão de Resíduos Integrada:</h5>
+                    <p className="text-gray-600">Compartimento lateral para recolha e triagem de resíduos hospitalares.</p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="h-full">
+                <CardHeader>
+                  <CardTitle className="text-xl text-emerald-600">5. Integração Digital</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div>
+                    <h5 className="font-semibold mb-2">QR Code no Chassis:</h5>
+                    <p className="text-gray-600">Gestão de stock em tempo real via aplicação móvel dedicada.</p>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold mb-2">Prevenção de Ruturas:</h5>
+                    <p className="text-gray-600">Monitorização eficiente dos consumíveis para garantir disponibilidade.</p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="h-full">
+                <CardHeader>
+                  <CardTitle className="text-xl text-emerald-600">6. Modularidade e Personalização (Desenvolvimentos Futuros)</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div>
+                    <h5 className="font-semibold mb-2">Módulos Desagregáveis:</h5>
+                    <p className="text-gray-600">Transporte seletivo com engate rápido.</p>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold mb-2">Codificação Cromática:</h5>
+                    <p className="text-gray-600">Identificação rápida por tipologia (emergência, medicação, etc.).</p>
+                  </div>
+                  <div>
+                    <h5 className="font-semibold mb-2">Tabuleiro Extensível:</h5>
+                    <p className="text-gray-600">Superfície adicional para maior flexibilidade.</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
         
         <div className="text-center mt-16">
           <div className="bg-gradient-to-r from-emerald-600 to-green-600 rounded-2xl p-8 text-white max-w-4xl mx-auto">
