@@ -35,7 +35,19 @@ export const Contact = () => {
             </Button>
           </div>
           
-          <div className="pt-12">
+          <div className="pt-8">
+            <div className="text-emerald-100 font-medium text-lg">
+              Email: Domibag_outlook.com
+            </div>
+          </div>
+          
+          <div className="pt-8">
+            <div className="text-emerald-100 font-medium">
+              <strong>Fundadoras:</strong> Magda Brandão & Catarina Pishchyk
+            </div>
+          </div>
+          
+          <div className="pt-4">
             <div className="inline-flex items-center px-6 py-3 bg-white/20 rounded-full text-emerald-100 font-medium backdrop-blur-sm">
               <MessageCircle className="mr-2 h-5 w-5" />
               Pronto para revolucionar os cuidados de saúde?
