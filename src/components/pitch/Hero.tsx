@@ -4,18 +4,23 @@ import { ArrowDown } from 'lucide-react';
 
 export const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-emerald-600 to-green-700 min-h-screen flex items-center text-white">
-      <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
-      <div className="container mx-auto px-4 py-20">
+    <section className="relative overflow-hidden min-h-screen flex items-center text-white">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80')`
+        }}
+      ></div>
+      
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/90 via-green-700/85 to-emerald-800/80"></div>
+      
+      {/* Grid Pattern */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+      
+      <div className="container mx-auto px-4 py-20 relative z-10">
         <div className="text-center space-y-8 animate-in slide-in-from-bottom duration-1000">
-          <div className="flex justify-center mb-8">
-            <img 
-              src="/lovable-uploads/735031b8-e50f-4d5b-ad5f-c023b69c5d2b.png" 
-              alt="Domibag Logo" 
-              className="h-24 w-auto"
-            />
-          </div>
-          
           <h1 className="text-5xl lg:text-7xl font-bold tracking-tight leading-tight">
             Domibag
             <span className="text-emerald-200">™</span>
