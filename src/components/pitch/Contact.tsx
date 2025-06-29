@@ -31,14 +31,8 @@ export const Contact = () => {
               className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300"
             >
               <Mail className="mr-2 h-5 w-5" />
-              Domibag_@outlook.com
+              Domibag_outlook.com
             </Button>
-          </div>
-          
-          <div className="pt-8">
-            <div className="text-emerald-100 font-medium text-lg">
-              Email: Domibag_outlook.com
-            </div>
           </div>
           
           <div className="pt-8">
