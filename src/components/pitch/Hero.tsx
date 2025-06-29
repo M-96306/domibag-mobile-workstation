@@ -3,6 +3,13 @@ import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
 
 export const Hero = () => {
+  const scrollToNextSection = () => {
+    const nextSection = document.querySelector('section:nth-of-type(2)');
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative overflow-hidden min-h-screen flex items-center text-white">
       {/* Background Image */}
@@ -32,6 +39,7 @@ export const Hero = () => {
           
           <div className="pt-12">
             <Button 
+              onClick={scrollToNextSection}
               variant="outline" 
               size="lg"
               className="bg-white text-emerald-600 hover:bg-emerald-50 px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300"

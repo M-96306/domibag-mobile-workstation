@@ -9,6 +9,7 @@ import { Marketing } from '@/components/pitch/Marketing';
 import { Competition } from '@/components/pitch/Competition';
 import { Roadmap } from '@/components/pitch/Roadmap';
 import { Team } from '@/components/pitch/Team';
+import { ContactForms } from '@/components/pitch/ContactForms';
 import { Contact } from '@/components/pitch/Contact';
 
 const PitchDeck = () => {
@@ -24,6 +25,7 @@ const PitchDeck = () => {
       <Competition />
       <Roadmap />
       <Team />
+      <ContactForms />
       <Contact />
     </div>
   );
