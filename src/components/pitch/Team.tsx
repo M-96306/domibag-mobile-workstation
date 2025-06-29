@@ -1,17 +1,14 @@
-
 import { User, Users, Search, DollarSign } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const founders = [
   {
     name: "Magda Brandão",
-    role: "Fundadora",
-    area: "Gestão de Projeto"
+    role: "Fundadora"
   },
   {
     name: "Catarina Pishchyk", 
-    role: "Cofundadora",
-    area: "Gestão Financeira e Administrativa"
+    role: "Cofundadora"
   }
 ];
 
@@ -61,7 +58,6 @@ export const Team = () => {
                       <div>
                         <h4 className="text-xl font-bold text-gray-900">{founder.name}</h4>
                         <p className="text-emerald-600 font-semibold">{founder.role}</p>
-                        <p className="text-gray-600">{founder.area}</p>
                       </div>
                     </div>
                   </CardContent>
