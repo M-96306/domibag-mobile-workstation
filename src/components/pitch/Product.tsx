@@ -1,4 +1,3 @@
-
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Settings, Package, Navigation, Shield } from 'lucide-react';
@@ -18,28 +17,23 @@ export const Product = () => {
   const characteristicImages = [
     {
       src: "/lovable-uploads/68566bc6-4094-49e5-bb0c-807389bf853f.png",
-      title: "Componente do Sistema Modular",
-      description: "Componente do sistema modular que permite desagregar o módulo"
+      title: "Componente do Sistema Modular"
     },
     {
       src: "/lovable-uploads/dff9f5d5-7925-4c94-bae9-a915080bd92f.png",
-      title: "Pega Ergonómica",
-      description: "Pega ergonómica da Domibag"
+      title: "Pega Ergonómica"
     },
     {
       src: "/lovable-uploads/c4518924-fdaf-4c51-969a-ff13133b69ef.png",
-      title: "Tabuleiro de Alumínio Amovível",
-      description: "Tabuleiro de alumínio amovível"
+      title: "Tabuleiro de Alumínio Amovível"
     },
     {
       src: "/lovable-uploads/2221985b-4ec6-4831-8805-19230a064567.png",
-      title: "Tabuleiro de Alumínio Extensível",
-      description: "Tabuleiro de alumínio extensível"
+      title: "Tabuleiro de Alumínio Extensível"
     },
     {
       src: "/lovable-uploads/0ba8a44e-963e-406d-8a4f-0ffa0f4b3083.png",
-      title: "Rodas Triangulares",
-      description: "Rodas triangulares para facilitar a subida de escada"
+      title: "Rodas Triangulares"
     }
   ];
 
@@ -215,8 +209,7 @@ export const Product = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="mt-6 text-center">
-                  <h4 className="text-xl font-bold text-gray-900 mb-3">{image.title}</h4>
-                  <p className="text-gray-600 leading-relaxed">{image.description}</p>
+                  <h4 className="text-xl font-bold text-gray-900">{image.title}</h4>
                 </div>
               </div>
             ))}

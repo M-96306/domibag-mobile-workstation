@@ -27,8 +27,7 @@ export const Contact = () => {
             
             <Button 
               size="lg"
-              variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300"
+              className="bg-white text-emerald-600 hover:bg-emerald-50 px-8 py-6 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
               <Mail className="mr-2 h-5 w-5" />
               Domibag_outlook.com

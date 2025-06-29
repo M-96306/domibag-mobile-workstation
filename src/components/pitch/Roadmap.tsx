@@ -10,7 +10,8 @@ const phases = [
     color: "from-green-500 to-emerald-500",
     items: [
       "Ideação e desenvolvimento do design técnico",
-      "Modelagem em 3D do produto"
+      "Modelagem em 3D do produto",
+      "Registo de marca concedido"
     ]
   },
   {
@@ -20,7 +21,8 @@ const phases = [
     color: "from-blue-500 to-indigo-500",
     items: [
       "Prototipagem industrial funcional",
-      "Planeamento e preparação para a certificação médica"
+      "Planeamento e preparação para a certificação médica",
+      "Registo de modelo de utilidade"
     ]
   },
   {

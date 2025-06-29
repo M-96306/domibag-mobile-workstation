@@ -9,7 +9,7 @@ export const Hero = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80')`
+          backgroundImage: `url('/lovable-uploads/d98fb43b-f0fd-4e98-a1f3-7183b1a8708d.png')`
         }}
       ></div>
       
@@ -34,10 +34,9 @@ export const Hero = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-2 border-white text-white hover:bg-white hover:text-emerald-600 px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300"
+              className="bg-white text-emerald-600 hover:bg-emerald-50 px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300"
             >
-              <ArrowDown className="mr-2 h-5 w-5" />
-              Explorar Pitch Deck
+              Saber mais
             </Button>
           </div>
         </div>
