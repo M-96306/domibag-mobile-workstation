@@ -26,23 +26,23 @@ export const Hero = () => {
       {/* Grid Pattern */}
       <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
       
-      <div className="container mx-auto px-4 py-20 relative z-10">
-        <div className="text-center space-y-8 animate-in slide-in-from-bottom duration-1000">
-          <h1 className="text-5xl lg:text-7xl font-bold tracking-tight leading-tight">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+        <div className="text-center space-y-6 sm:space-y-8 animate-in slide-in-from-bottom duration-1000">
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-tight">
             Domibag
             <span className="text-emerald-200">™</span>
           </h1>
           
-          <h2 className="text-2xl lg:text-4xl font-semibold text-emerald-100 max-w-4xl mx-auto leading-relaxed">
+          <h2 className="text-xl sm:text-2xl lg:text-4xl font-semibold text-emerald-100 max-w-4xl mx-auto leading-relaxed px-4">
             A Nova Geração de Mobilidade para Cuidados Domiciliários
           </h2>
           
-          <div className="pt-12">
+          <div className="pt-8 sm:pt-12">
             <Button 
               onClick={scrollToNextSection}
               variant="outline" 
               size="lg"
-              className="bg-white text-emerald-600 hover:bg-emerald-50 px-8 py-6 text-lg font-semibold rounded-xl transition-all duration-300"
+              className="bg-white text-emerald-600 hover:bg-emerald-50 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300"
             >
               Saber mais
             </Button>

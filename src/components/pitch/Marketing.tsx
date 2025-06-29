@@ -32,34 +32,34 @@ const strategies = [
 
 export const Marketing = () => {
   return (
-    <section className="py-24 bg-gradient-to-br from-purple-50 to-pink-100">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+    <section className="py-16 sm:py-24 bg-gradient-to-br from-purple-50 to-pink-100">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
             Estratégia de
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600"> Marketing</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             Estratégia de marketing e aquisição de clientes focada em múltiplos canais
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {strategies.map((strategy, index) => (
             <Card 
               key={index} 
               className="group hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 hover:bg-white transform hover:scale-105"
             >
               <CardHeader className="pb-4">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <strategy.icon className="h-8 w-8 text-white" />
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <strategy.icon className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                 </div>
-                <CardTitle className="text-xl group-hover:text-purple-700 transition-colors">
+                <CardTitle className="text-lg sm:text-xl group-hover:text-purple-700 transition-colors">
                   {strategy.title}
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                   {strategy.description}
                 </p>
               </CardContent>
