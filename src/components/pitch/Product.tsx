@@ -199,17 +199,17 @@ export const Product = () => {
           
           <div className="grid lg:grid-cols-3 gap-8 mb-12">
             {characteristicImages.map((image, index) => (
-              <div key={index} className="group">
-                <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
+              <div key={index} className="group cursor-pointer">
+                <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-110 hover:-translate-y-2">
                   <img 
                     src={image.src} 
                     alt={image.title}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-64 object-cover group-hover:scale-125 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="mt-6 text-center">
-                  <h4 className="text-xl font-bold text-gray-900">{image.title}</h4>
+                  <h4 className="text-xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300">{image.title}</h4>
                 </div>
               </div>
             ))}
