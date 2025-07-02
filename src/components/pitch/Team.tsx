@@ -60,7 +60,11 @@ export const Team = () => {
                           <img 
                             src={founder.image} 
                             alt={founder.name}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover object-center"
+                            style={{
+                              objectPosition: founder.name === "Catarina Pishchyk" ? "center 20%" : 
+                                            founder.name === "Magda Brandão" ? "center 30%" : "center"
+                            }}
                           />
                         ) : (
                           <User className="h-8 w-8 text-white" />
