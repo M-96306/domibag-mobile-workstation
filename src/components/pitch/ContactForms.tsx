@@ -23,18 +23,14 @@ export const ContactForms = () => {
 
   const handleInvestorSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Investor form submitted:', investorForm);
-    // Aqui seria implementada a lógica de envio do formulário
-    alert('Formulário de investidor enviado com sucesso!');
-    setInvestorForm({ subject: '', message: '', email: '' });
+    const mailtoLink = `mailto:Domibag_outlook.com?subject=${encodeURIComponent(investorForm.subject)}&body=${encodeURIComponent(`Email: ${investorForm.email}\n\nMensagem:\n${investorForm.message}`)}`;
+    window.location.href = mailtoLink;
   };
 
   const handleClientSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Client form submitted:', clientForm);
-    // Aqui seria implementada a lógica de envio do formulário
-    alert('Formulário de cliente enviado com sucesso!');
-    setClientForm({ subject: '', message: '', email: '' });
+    const mailtoLink = `mailto:Domibag_outlook.com?subject=${encodeURIComponent(clientForm.subject)}&body=${encodeURIComponent(`Email: ${clientForm.email}\n\nMensagem:\n${clientForm.message}`)}`;
+    window.location.href = mailtoLink;
   };
 
   return (
