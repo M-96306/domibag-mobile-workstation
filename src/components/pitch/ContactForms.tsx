@@ -7,8 +7,11 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Users, ShoppingCart, Send } from 'lucide-react';
+import { useToast } from '@/hooks/use-toast';
 
 export const ContactForms = () => {
+  const { toast } = useToast();
+  
   const [investorForm, setInvestorForm] = useState({
     subject: '',
     message: '',
@@ -23,14 +26,22 @@ export const ContactForms = () => {
 
   const handleInvestorSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:Domibag_outlook.com?subject=${encodeURIComponent(investorForm.subject)}&body=${encodeURIComponent(`Email: ${investorForm.email}\n\nMensagem:\n${investorForm.message}`)}`;
+    const mailtoLink = `mailto:Domibag_@outlook.com?subject=${encodeURIComponent(investorForm.subject)}&body=${encodeURIComponent(`Email: ${investorForm.email}\n\nMensagem:\n${investorForm.message}`)}`;
     window.location.href = mailtoLink;
+    toast({
+      title: "Formulário enviado",
+      description: "O seu formulário foi enviado com sucesso.",
+    });
   };
 
   const handleClientSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:Domibag_outlook.com?subject=${encodeURIComponent(clientForm.subject)}&body=${encodeURIComponent(`Email: ${clientForm.email}\n\nMensagem:\n${clientForm.message}`)}`;
+    const mailtoLink = `mailto:Domibag_@outlook.com?subject=${encodeURIComponent(clientForm.subject)}&body=${encodeURIComponent(`Email: ${clientForm.email}\n\nMensagem:\n${clientForm.message}`)}`;
     window.location.href = mailtoLink;
+    toast({
+      title: "Formulário enviado",
+      description: "O seu formulário foi enviado com sucesso.",
+    });
   };
 
   return (
