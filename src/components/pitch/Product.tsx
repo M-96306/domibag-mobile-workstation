@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Settings, Package, Navigation, Shield } from 'lucide-react';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { Settings, Package, Navigation, Shield, X } from 'lucide-react';
 
 export const Product = () => {
   const generalImages = [
@@ -199,19 +201,35 @@ export const Product = () => {
           
           <div className="grid lg:grid-cols-3 gap-8 mb-12">
             {characteristicImages.map((image, index) => (
-              <div key={index} className="group cursor-pointer">
-                <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-110 hover:-translate-y-2">
-                  <img 
-                    src={image.src} 
-                    alt={image.title}
-                    className="w-full h-64 object-cover group-hover:scale-125 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-                <div className="mt-6 text-center">
-                  <h4 className="text-xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300">{image.title}</h4>
-                </div>
-              </div>
+              <Dialog key={index}>
+                <DialogTrigger asChild>
+                  <div className="group cursor-pointer">
+                    <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-110 hover:-translate-y-2">
+                      <img 
+                        src={image.src} 
+                        alt={image.title}
+                        className="w-full h-64 object-cover group-hover:scale-125 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    <div className="mt-6 text-center">
+                      <h4 className="text-xl font-bold text-gray-900 group-hover:text-emerald-600 transition-colors duration-300">{image.title}</h4>
+                    </div>
+                  </div>
+                </DialogTrigger>
+                <DialogContent className="max-w-4xl max-h-[90vh] p-0">
+                  <div className="relative">
+                    <img 
+                      src={image.src} 
+                      alt={image.title}
+                      className="w-full h-auto max-h-[80vh] object-contain"
+                    />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                      <h3 className="text-white text-2xl font-bold">{image.title}</h3>
+                    </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
             ))}
           </div>
 
