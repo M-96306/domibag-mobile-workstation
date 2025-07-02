@@ -4,11 +4,13 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 const founders = [
   {
     name: "Magda Brandão",
-    role: "Fundadora"
+    role: "Fundadora",
+    image: "/lovable-uploads/80bcdf27-69f1-4974-8b00-bdff42b45ecd.png"
   },
   {
     name: "Catarina Pishchyk", 
-    role: "Cofundadora"
+    role: "Cofundadora",
+    image: "/lovable-uploads/9d47a32d-6166-4f94-9f59-f5a7b7413d53.png"
   }
 ];
 
@@ -16,7 +18,8 @@ const partners = [
   {
     name: "David Farinha",
     role: "Design de Produto",
-    status: "active"
+    status: "active",
+    image: "/lovable-uploads/b15c2b19-e66a-45ca-ad47-d6ac73920199.png"
   }
 ];
 
@@ -52,8 +55,16 @@ export const Team = () => {
                 <Card key={index} className="hover:shadow-lg transition-shadow bg-gradient-to-r from-emerald-50 to-green-50">
                   <CardContent className="p-8">
                     <div className="flex items-center gap-4">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-r from-emerald-500 to-green-500 flex items-center justify-center">
-                        <User className="h-8 w-8 text-white" />
+                      <div className="w-16 h-16 rounded-full overflow-hidden bg-gradient-to-r from-emerald-500 to-green-500 flex items-center justify-center">
+                        {founder.image ? (
+                          <img 
+                            src={founder.image} 
+                            alt={founder.name}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <User className="h-8 w-8 text-white" />
+                        )}
                       </div>
                       <div>
                         <h4 className="text-xl font-bold text-gray-900">{founder.name}</h4>
@@ -73,8 +84,16 @@ export const Team = () => {
                 <Card key={index} className="hover:shadow-lg transition-shadow bg-gradient-to-r from-blue-50 to-indigo-50">
                   <CardContent className="p-8">
                     <div className="flex items-center gap-4">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-indigo-500 flex items-center justify-center">
-                        <User className="h-8 w-8 text-white" />
+                      <div className="w-16 h-16 rounded-full overflow-hidden bg-gradient-to-r from-blue-500 to-indigo-500 flex items-center justify-center">
+                        {partner.image ? (
+                          <img 
+                            src={partner.image} 
+                            alt={partner.name}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <User className="h-8 w-8 text-white" />
+                        )}
                       </div>
                       <div>
                         <h4 className="text-xl font-bold text-gray-900">{partner.name}</h4>
