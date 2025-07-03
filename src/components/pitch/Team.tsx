@@ -20,6 +20,18 @@ const partners = [
     role: "Design de Produto",
     status: "active",
     image: "/lovable-uploads/b15c2b19-e66a-45ca-ad47-d6ac73920199.png"
+  },
+  {
+    name: "Helena Loureiro",
+    role: "Advisor",
+    status: "active",
+    image: "/lovable-uploads/82e116e7-67ba-4955-8c46-ac154b9b9187.png"
+  },
+  {
+    name: "Rita Leal", 
+    role: "Advisor",
+    status: "active",
+    image: "/lovable-uploads/985ebc45-cf89-443b-bd0a-caecc6c013e5.png"
   }
 ];
 
@@ -89,15 +101,19 @@ export const Team = () => {
                   <CardContent className="p-8">
                     <div className="flex items-center gap-4">
                       <div className="w-16 h-16 rounded-full overflow-hidden bg-gradient-to-r from-blue-500 to-indigo-500 flex items-center justify-center">
-                        {partner.image ? (
-                          <img 
-                            src={partner.image} 
-                            alt={partner.name}
-                            className="w-full h-full object-cover"
-                          />
-                        ) : (
-                          <User className="h-8 w-8 text-white" />
-                        )}
+                         {partner.image ? (
+                           <img 
+                             src={partner.image} 
+                             alt={partner.name}
+                             className="w-full h-full object-cover object-center"
+                             style={{
+                               objectPosition: partner.name === "Helena Loureiro" ? "center 15%" : 
+                                             partner.name === "Rita Leal" ? "center 20%" : "center"
+                             }}
+                           />
+                         ) : (
+                           <User className="h-8 w-8 text-white" />
+                         )}
                       </div>
                       <div>
                         <h4 className="text-xl font-bold text-gray-900">{partner.name}</h4>
