@@ -14,13 +14,7 @@ const founders = [
   }
 ];
 
-const partners = [
-  {
-    name: "David Farinha",
-    role: "Design de Produto",
-    status: "active",
-    image: "/lovable-uploads/b15c2b19-e66a-45ca-ad47-d6ac73920199.png"
-  },
+const advisors = [
   {
     name: "Helena Loureiro",
     role: "Advisor",
@@ -32,6 +26,15 @@ const partners = [
     role: "Advisor",
     status: "active",
     image: "/lovable-uploads/985ebc45-cf89-443b-bd0a-caecc6c013e5.png"
+  }
+];
+
+const partners = [
+  {
+    name: "David Farinha",
+    role: "Design de Produto",
+    status: "active",
+    image: "/lovable-uploads/b15c2b19-e66a-45ca-ad47-d6ac73920199.png"
   }
 ];
 
@@ -91,6 +94,33 @@ export const Team = () => {
                 </Card>
               ))}
             </div>
+            
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center mt-8">Advisors</h3>
+            <div className="grid gap-6">
+              {advisors.map((advisor, index) => (
+                <Card key={index} className="hover:shadow-lg transition-shadow bg-gradient-to-r from-purple-50 to-pink-50">
+                  <CardContent className="p-8">
+                    <div className="flex items-center gap-4">
+                      <div className="w-16 h-16 rounded-full overflow-hidden bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
+                        {advisor.image ? (
+                          <img 
+                            src={advisor.image} 
+                            alt={advisor.name}
+                            className="w-full h-full object-cover object-center"
+                          />
+                        ) : (
+                          <User className="h-8 w-8 text-white" />
+                        )}
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-gray-900">{advisor.name}</h4>
+                        <p className="text-purple-600 font-semibold">{advisor.role}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
 
           <div>
@@ -107,8 +137,7 @@ export const Team = () => {
                              alt={partner.name}
                              className="w-full h-full object-cover object-center"
                              style={{
-                               objectPosition: partner.name === "Helena Loureiro" ? "center 15%" : 
-                                             partner.name === "Rita Leal" ? "center 20%" : "center"
+                               objectPosition: "center 25%"
                              }}
                            />
                          ) : (
