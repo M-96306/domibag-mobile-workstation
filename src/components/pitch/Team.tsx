@@ -3,14 +3,14 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const founders = [
   {
-    name: "Magda Brandão",
-    role: "Fundadora",
-    image: "/lovable-uploads/80bcdf27-69f1-4974-8b00-bdff42b45ecd.png"
-  },
-  {
     name: "Catarina Pishchyk", 
     role: "Cofundadora",
-    image: "/lovable-uploads/9d47a32d-6166-4f94-9f59-f5a7b7413d53.png"
+    image: "/lovable-uploads/83421821-16c7-4d78-bce0-002cf6328c66.png"
+  },
+  {
+    name: "Magda Brandão",
+    role: "Fundadora",
+    image: "/lovable-uploads/79cdc3f9-45ec-489a-ac6c-0d3a6c14b011.png"
   }
 ];
 
@@ -34,7 +34,7 @@ const partners = [
     name: "David Farinha",
     role: "Design de Produto",
     status: "active",
-    image: "/lovable-uploads/b15c2b19-e66a-45ca-ad47-d6ac73920199.png"
+    image: "/lovable-uploads/7f0a9d4f-426f-4d76-9113-f3e59c4c2abf.png"
   }
 ];
 
@@ -77,9 +77,8 @@ export const Team = () => {
                              alt={founder.name}
                              className="w-full h-full object-cover object-center"
                              style={{
-                               objectPosition: founder.name === "Catarina Pishchyk" ? "center 30%" : 
-                                             founder.name === "Magda Brandão" ? "center 35%" : "center"
-                             }}
+                                objectPosition: "center 20%"
+                              }}
                            />
                          ) : (
                            <User className="h-8 w-8 text-white" />
@@ -136,9 +135,9 @@ export const Team = () => {
                              src={partner.image} 
                              alt={partner.name}
                              className="w-full h-full object-cover object-center"
-                             style={{
-                               objectPosition: "center 35%"
-                             }}
+                              style={{
+                                objectPosition: "center 20%"
+                              }}
                            />
                          ) : (
                            <User className="h-8 w-8 text-white" />
