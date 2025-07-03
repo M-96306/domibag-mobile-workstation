@@ -13,12 +13,14 @@ export const ContactForms = () => {
   const { toast } = useToast();
   
   const [investorForm, setInvestorForm] = useState({
+    name: '',
     subject: '',
     message: '',
     email: ''
   });
 
   const [clientForm, setClientForm] = useState({
+    name: '',
     subject: '',
     message: '',
     email: ''
@@ -26,21 +28,21 @@ export const ContactForms = () => {
 
   const handleInvestorSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:Domibag_@outlook.com?subject=${encodeURIComponent(investorForm.subject)}&body=${encodeURIComponent(`Email: ${investorForm.email}\n\nMensagem:\n${investorForm.message}`)}`;
+    const mailtoLink = `mailto:domibag_outlook.com?subject=${encodeURIComponent(`Novo Formulário - Investidor | ${investorForm.subject}`)}&body=${encodeURIComponent(`Nome: ${investorForm.name}\nEmail: ${investorForm.email}\n\nMensagem:\n${investorForm.message}`)}`;
     window.location.href = mailtoLink;
     toast({
-      title: "Formulário enviado",
-      description: "O seu formulário foi enviado com sucesso.",
+      title: "Obrigado pelo seu interesse na Domibag!",
+      description: "A sua mensagem foi enviada com sucesso. Entraremos em contacto consigo em breve.",
     });
   };
 
   const handleClientSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:Domibag_@outlook.com?subject=${encodeURIComponent(clientForm.subject)}&body=${encodeURIComponent(`Email: ${clientForm.email}\n\nMensagem:\n${clientForm.message}`)}`;
+    const mailtoLink = `mailto:domibag_outlook.com?subject=${encodeURIComponent(`Novo Formulário - Cliente | ${clientForm.subject}`)}&body=${encodeURIComponent(`Nome: ${clientForm.name}\nEmail: ${clientForm.email}\n\nMensagem:\n${clientForm.message}`)}`;
     window.location.href = mailtoLink;
     toast({
-      title: "Formulário enviado",
-      description: "O seu formulário foi enviado com sucesso.",
+      title: "Obrigado pelo seu contacto!",
+      description: "A sua mensagem foi enviada com sucesso e será respondida com a maior brevidade.",
     });
   };
 
@@ -80,6 +82,19 @@ export const ContactForms = () => {
                 </CardHeader>
                 <CardContent className="p-8">
                   <form onSubmit={handleInvestorSubmit} className="space-y-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="investor-name">Nome *</Label>
+                      <Input
+                        id="investor-name"
+                        type="text"
+                        placeholder="O seu nome completo"
+                        value={investorForm.name}
+                        onChange={(e) => setInvestorForm({...investorForm, name: e.target.value})}
+                        required
+                        className="h-12"
+                      />
+                    </div>
+                    
                     <div className="space-y-2">
                       <Label htmlFor="investor-email">Email *</Label>
                       <Input
@@ -139,6 +154,19 @@ export const ContactForms = () => {
                 </CardHeader>
                 <CardContent className="p-8">
                   <form onSubmit={handleClientSubmit} className="space-y-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="client-name">Nome *</Label>
+                      <Input
+                        id="client-name"
+                        type="text"
+                        placeholder="O seu nome completo"
+                        value={clientForm.name}
+                        onChange={(e) => setClientForm({...clientForm, name: e.target.value})}
+                        required
+                        className="h-12"
+                      />
+                    </div>
+                    
                     <div className="space-y-2">
                       <Label htmlFor="client-email">Email *</Label>
                       <Input

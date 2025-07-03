@@ -71,19 +71,19 @@ export const Team = () => {
                   <CardContent className="p-8">
                     <div className="flex items-center gap-4">
                       <div className="w-16 h-16 rounded-full overflow-hidden bg-gradient-to-r from-emerald-500 to-green-500 flex items-center justify-center">
-                        {founder.image ? (
-                          <img 
-                            src={founder.image} 
-                            alt={founder.name}
-                            className="w-full h-full object-cover object-center"
-                            style={{
-                              objectPosition: founder.name === "Catarina Pishchyk" ? "center 20%" : 
-                                            founder.name === "Magda Brandão" ? "center 30%" : "center"
-                            }}
-                          />
-                        ) : (
-                          <User className="h-8 w-8 text-white" />
-                        )}
+                         {founder.image ? (
+                           <img 
+                             src={founder.image} 
+                             alt={founder.name}
+                             className="w-full h-full object-cover object-center"
+                             style={{
+                               objectPosition: founder.name === "Catarina Pishchyk" ? "center 30%" : 
+                                             founder.name === "Magda Brandão" ? "center 35%" : "center"
+                             }}
+                           />
+                         ) : (
+                           <User className="h-8 w-8 text-white" />
+                         )}
                       </div>
                       <div>
                         <h4 className="text-xl font-bold text-gray-900">{founder.name}</h4>
@@ -137,7 +137,7 @@ export const Team = () => {
                              alt={partner.name}
                              className="w-full h-full object-cover object-center"
                              style={{
-                               objectPosition: "center 25%"
+                               objectPosition: "center 35%"
                              }}
                            />
                          ) : (
