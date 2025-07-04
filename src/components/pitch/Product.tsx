@@ -61,7 +61,7 @@ export const Product = () => {
 
         
         <Tabs defaultValue="workstation" className="max-w-6xl mx-auto mb-16">
-          <TabsList className="grid w-full grid-cols-4 mb-12">
+          <TabsList className="grid w-full grid-cols-3 mb-12">
             <TabsTrigger value="workstation" className="flex items-center gap-2">
               <Settings className="h-4 w-4" />
               Estação de Trabalho
@@ -73,10 +73,6 @@ export const Product = () => {
             <TabsTrigger value="mobility" className="flex items-center gap-2">
               <Navigation className="h-4 w-4" />
               Mobilidade
-            </TabsTrigger>
-            <TabsTrigger value="management" className="flex items-center gap-2">
-              <Shield className="h-4 w-4" />
-              Gestão
             </TabsTrigger>
           </TabsList>
           
@@ -109,17 +105,6 @@ export const Product = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <p className="text-gray-600">Solução de mobilidade avançada com sistema de rodas inovador, design ergonómico e elementos de segurança integrados para uso profissional.</p>
-              </CardContent>
-            </Card>
-          </TabsContent>
-          
-          <TabsContent value="management" className="space-y-6">
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="text-2xl text-emerald-600 mb-4">Gestão e Conformidade</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-gray-600">Sistema de gestão integrado com tecnologia digital para controlo de stock e conformidade com normas de segurança hospitalar.</p>
               </CardContent>
             </Card>
           </TabsContent>
