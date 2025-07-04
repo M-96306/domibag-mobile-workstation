@@ -59,23 +59,6 @@ export const Product = () => {
           </p>
         </div>
 
-        {/* General Images */}
-        <div className="mb-16">
-          <h3 className="text-3xl font-bold text-center text-gray-900 mb-8">Vista Geral</h3>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {generalImages.map((image, index) => (
-              <div key={index} className="relative group">
-                <div className="overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500">
-                  <img 
-                    src={image.src} 
-                    alt={image.alt}
-                    className="w-full h-80 object-cover transform hover:scale-105 transition-transform duration-700"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
         
         <Tabs defaultValue="workstation" className="max-w-6xl mx-auto mb-16">
           <TabsList className="grid w-full grid-cols-4 mb-12">
@@ -103,16 +86,7 @@ export const Product = () => {
                 <CardTitle className="text-2xl text-emerald-600 mb-4">Estação de Trabalho Adaptável</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="font-semibold text-lg mb-2">Transformação Rápida</h4>
-                    <p className="text-gray-600">Conversão instantânea da mala numa estação de trabalho com 3 alturas ajustáveis, adaptando-se às necessidades individuais do profissional.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-lg mb-2">Superfícies Esterilizáveis</h4>
-                    <p className="text-gray-600">Superfícies de trabalho amovíveis em alumínio, compatíveis com ciclos de autoclave, garantindo higiene rigorosa e segurança clínica.</p>
-                  </div>
-                </div>
+                <p className="text-gray-600">Estação de trabalho móvel com altura ajustável e superfícies esterilizáveis para uso profissional em contextos domiciliários.</p>
               </CardContent>
             </Card>
           </TabsContent>
@@ -123,20 +97,7 @@ export const Product = () => {
                 <CardTitle className="text-2xl text-emerald-600 mb-4">Armazenamento Inteligente e Organização</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="font-semibold text-lg mb-2">Compartimentação Inteligente</h4>
-                    <p className="text-gray-600">Compartimentação interior fixa inteligente e gavetas com sistema push-to-open, proporcionando acesso rápido, organizado e seguro.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-lg mb-2">Sistema Modular</h4>
-                    <p className="text-gray-600">Sistema desagregável que permite transportar apenas os módulos necessários, mantendo a funcionalidade da superfície de trabalho.</p>
-                  </div>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-lg mb-2">Codificação Cromática</h4>
-                  <p className="text-gray-600">Codificação cromática intuitiva facilita a identificação rápida dos módulos, otimizando organização e reposição do material.</p>
-                </div>
+                <p className="text-gray-600">Sistema modular inteligente com compartimentação organizada e codificação cromática para gestão eficiente de materiais médicos.</p>
               </CardContent>
             </Card>
           </TabsContent>
@@ -147,26 +108,7 @@ export const Product = () => {
                 <CardTitle className="text-2xl text-emerald-600 mb-4">Mobilidade e Segurança</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="font-semibold text-lg mb-2">Rodas Triangulares Inovadoras</h4>
-                    <p className="text-gray-600">Mobilidade autónoma capaz de ultrapassar escadas e terrenos irregulares com facilidade e sem esforço.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-lg mb-2">Sistema de Travão</h4>
-                    <p className="text-gray-600">Rodas frontais equipadas com sistema de travão de segurança, assegurando estabilidade em superfícies inclinadas.</p>
-                  </div>
-                </div>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="font-semibold text-lg mb-2">Design Ergonómico</h4>
-                    <p className="text-gray-600">Pega ergonómica que reduz a fadiga e facilita o transporte. Carcaça leve e resistente em ABS com 40% de aluminium flake.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-lg mb-2">Segurança Visual</h4>
-                    <p className="text-gray-600">Faixas refletoras estrategicamente posicionadas, garantindo visibilidade em qualquer hora do dia.</p>
-                  </div>
-                </div>
+                <p className="text-gray-600">Solução de mobilidade avançada com sistema de rodas inovador, design ergonómico e elementos de segurança integrados para uso profissional.</p>
               </CardContent>
             </Card>
           </TabsContent>
@@ -177,16 +119,7 @@ export const Product = () => {
                 <CardTitle className="text-2xl text-emerald-600 mb-4">Gestão e Conformidade</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="font-semibold text-lg mb-2">Triagem de Resíduos</h4>
-                    <p className="text-gray-600">Sistema integrado de triagem de resíduos do grupo III e corto-perfurantes, assegurando conformidade com normas ambientais e hospitalares.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-lg mb-2">Gestão Digital de Stock</h4>
-                    <p className="text-gray-600">Gestão digital em tempo real via QR code, otimizando a reposição e evitando faltas críticas de materiais durante as visitas.</p>
-                  </div>
-                </div>
+                <p className="text-gray-600">Sistema de gestão integrado com tecnologia digital para controlo de stock e conformidade com normas de segurança hospitalar.</p>
               </CardContent>
             </Card>
           </TabsContent>

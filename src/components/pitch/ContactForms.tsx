@@ -1,49 +1,10 @@
 
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Users, ShoppingCart, Send } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import { Send } from 'lucide-react';
 
 export const ContactForms = () => {
-  const { toast } = useToast();
-  
-  const [investorForm, setInvestorForm] = useState({
-    name: '',
-    subject: '',
-    message: '',
-    email: ''
-  });
-
-  const [clientForm, setClientForm] = useState({
-    name: '',
-    subject: '',
-    message: '',
-    email: ''
-  });
-
-  const handleInvestorSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const mailtoLink = `mailto:domibag_outlook.com?subject=${encodeURIComponent(`Novo Formulário - Investidor | ${investorForm.subject}`)}&body=${encodeURIComponent(`Nome: ${investorForm.name}\nEmail: ${investorForm.email}\n\nMensagem:\n${investorForm.message}`)}`;
-    window.location.href = mailtoLink;
-    toast({
-      title: "Obrigado pelo seu interesse na Domibag!",
-      description: "A sua mensagem foi enviada com sucesso. Entraremos em contacto consigo em breve.",
-    });
-  };
-
-  const handleClientSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const mailtoLink = `mailto:domibag_outlook.com?subject=${encodeURIComponent(`Novo Formulário - Cliente | ${clientForm.subject}`)}&body=${encodeURIComponent(`Nome: ${clientForm.name}\nEmail: ${clientForm.email}\n\nMensagem:\n${clientForm.message}`)}`;
-    window.location.href = mailtoLink;
-    toast({
-      title: "Obrigado pelo seu contacto!",
-      description: "A sua mensagem foi enviada com sucesso e será respondida com a maior brevidade.",
-    });
+  const handleFormClick = () => {
+    window.open('https://eozzl1aw5dg.typeform.com/to/E7amsJea', '_blank');
   };
 
   return (
@@ -59,163 +20,15 @@ export const ContactForms = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <Tabs defaultValue="investor" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 mb-8">
-              <TabsTrigger value="investor" className="flex items-center gap-2">
-                <Users className="h-4 w-4" />
-                Para Investidores
-              </TabsTrigger>
-              <TabsTrigger value="client" className="flex items-center gap-2">
-                <ShoppingCart className="h-4 w-4" />
-                Para Clientes
-              </TabsTrigger>
-            </TabsList>
-            
-            <TabsContent value="investor">
-              <Card className="shadow-xl">
-                <CardHeader className="bg-gradient-to-r from-emerald-600 to-green-600 text-white rounded-t-lg">
-                  <CardTitle className="text-2xl flex items-center gap-2">
-                    <Users className="h-6 w-6" />
-                    Formulário para Investidores
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="p-8">
-                  <form onSubmit={handleInvestorSubmit} className="space-y-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="investor-name">Nome *</Label>
-                      <Input
-                        id="investor-name"
-                        type="text"
-                        placeholder="O seu nome completo"
-                        value={investorForm.name}
-                        onChange={(e) => setInvestorForm({...investorForm, name: e.target.value})}
-                        required
-                        className="h-12"
-                      />
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="investor-email">Email *</Label>
-                      <Input
-                        id="investor-email"
-                        type="email"
-                        placeholder="seu.email@exemplo.com"
-                        value={investorForm.email}
-                        onChange={(e) => setInvestorForm({...investorForm, email: e.target.value})}
-                        required
-                        className="h-12"
-                      />
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="investor-subject">Assunto *</Label>
-                      <Input
-                        id="investor-subject"
-                        placeholder="Interesse em investimento na Domibag"
-                        value={investorForm.subject}
-                        onChange={(e) => setInvestorForm({...investorForm, subject: e.target.value})}
-                        required
-                        className="h-12"
-                      />
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="investor-message">Mensagem *</Label>
-                      <Textarea
-                        id="investor-message"
-                        placeholder="Descreva o seu interesse em investir na Domibag..."
-                        value={investorForm.message}
-                        onChange={(e) => setInvestorForm({...investorForm, message: e.target.value})}
-                        required
-                        className="min-h-32"
-                      />
-                    </div>
-                    
-                    <Button 
-                      type="submit"
-                      className="w-full bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white py-3 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-                    >
-                      <Send className="mr-2 h-5 w-5" />
-                      Enviar Formulário
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </TabsContent>
-            
-            <TabsContent value="client">
-              <Card className="shadow-xl">
-                <CardHeader className="bg-gradient-to-r from-emerald-600 to-green-600 text-white rounded-t-lg">
-                  <CardTitle className="text-2xl flex items-center gap-2">
-                    <ShoppingCart className="h-6 w-6" />
-                    Formulário para Clientes
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="p-8">
-                  <form onSubmit={handleClientSubmit} className="space-y-6">
-                    <div className="space-y-2">
-                      <Label htmlFor="client-name">Nome *</Label>
-                      <Input
-                        id="client-name"
-                        type="text"
-                        placeholder="O seu nome completo"
-                        value={clientForm.name}
-                        onChange={(e) => setClientForm({...clientForm, name: e.target.value})}
-                        required
-                        className="h-12"
-                      />
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="client-email">Email *</Label>
-                      <Input
-                        id="client-email"
-                        type="email"
-                        placeholder="seu.email@exemplo.com"
-                        value={clientForm.email}
-                        onChange={(e) => setClientForm({...clientForm, email: e.target.value})}
-                        required
-                        className="h-12"
-                      />
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="client-subject">Assunto *</Label>
-                      <Input
-                        id="client-subject"
-                        placeholder="Interesse em adquirir a Domibag"
-                        value={clientForm.subject}
-                        onChange={(e) => setClientForm({...clientForm, subject: e.target.value})}
-                        required
-                        className="h-12"
-                      />
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <Label htmlFor="client-message">Mensagem *</Label>
-                      <Textarea
-                        id="client-message"
-                        placeholder="Descreva as suas necessidades e interesse na Domibag..."
-                        value={clientForm.message}
-                        onChange={(e) => setClientForm({...clientForm, message: e.target.value})}
-                        required
-                        className="min-h-32"
-                      />
-                    </div>
-                    
-                    <Button 
-                      type="submit"
-                      className="w-full bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white py-3 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-                    >
-                      <Send className="mr-2 h-5 w-5" />
-                      Enviar Formulário
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </TabsContent>
-          </Tabs>
+        <div className="max-w-2xl mx-auto text-center">
+          <Button 
+            onClick={handleFormClick}
+            size="lg"
+            className="bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white px-12 py-6 text-xl font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+          >
+            <Send className="mr-3 h-6 w-6" />
+            Enviar Formulário
+          </Button>
         </div>
       </div>
     </section>
