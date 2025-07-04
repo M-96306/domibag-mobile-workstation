@@ -3,14 +3,14 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const founders = [
   {
-    name: "Catarina Pishchyk", 
-    role: "Cofundadora",
-    image: "/lovable-uploads/83421821-16c7-4d78-bce0-002cf6328c66.png"
-  },
-  {
     name: "Magda Brandão",
     role: "Fundadora",
     image: "/lovable-uploads/79cdc3f9-45ec-489a-ac6c-0d3a6c14b011.png"
+  },
+  {
+    name: "Catarina Pishchyk", 
+    role: "Cofundadora",
+    image: "/lovable-uploads/83421821-16c7-4d78-bce0-002cf6328c66.png"
   }
 ];
 
