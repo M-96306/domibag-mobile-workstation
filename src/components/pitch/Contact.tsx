@@ -1,6 +1,6 @@
 
 import { Button } from '@/components/ui/button';
-import { Mail, Phone, MessageCircle } from 'lucide-react';
+import { Mail, MessageCircle } from 'lucide-react';
 
 export const Contact = () => {
   return (
@@ -16,15 +16,7 @@ export const Contact = () => {
             <strong>Domibag</strong> – Mobilidade, ergonomia e eficiência para quem cuida.
           </p>
           
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 pt-6 sm:pt-8 px-4">
-            <Button 
-              size="lg"
-              className="w-full sm:w-auto bg-white text-emerald-600 hover:bg-emerald-50 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-            >
-              <Phone className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-              937 148 651
-            </Button>
-            
+          <div className="flex justify-center items-center pt-6 sm:pt-8 px-4">
             <Button 
               size="lg"
               className="w-full sm:w-auto bg-white text-emerald-600 hover:bg-emerald-50 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
@@ -36,7 +28,7 @@ export const Contact = () => {
           
           <div className="pt-6 sm:pt-8 px-4">
             <div className="text-emerald-100 font-medium text-sm sm:text-base">
-              <strong>Fundadoras:</strong> Magda Brandão & Catarina Pishchyk
+              <strong>Fundadora:</strong> Magda Brandão
             </div>
           </div>
           
