@@ -123,40 +123,6 @@ export const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
             </div>
             
-            {/* Floating Feature Cards */}
-            <motion.div 
-              className="absolute -left-4 bottom-1/4 bg-white rounded-xl p-4 shadow-lg border border-slate-100"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.8 }}
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-emerald-500 flex items-center justify-center">
-                  <span className="text-white text-lg">✓</span>
-                </div>
-                <div>
-                  <p className="font-bold text-foreground text-sm">Ergonómico</p>
-                  <p className="text-muted-foreground text-xs">Menos esforço físico</p>
-                </div>
-              </div>
-            </motion.div>
-            
-            <motion.div 
-              className="absolute -right-4 top-1/4 bg-white rounded-xl p-4 shadow-lg border border-slate-100"
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 1 }}
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-clinical-info flex items-center justify-center">
-                  <span className="text-white text-lg">🏠</span>
-                </div>
-                <div>
-                  <p className="font-bold text-foreground text-sm">Cuidados em Casa</p>
-                  <p className="text-muted-foreground text-xs">Qualidade hospitalar</p>
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </div>
