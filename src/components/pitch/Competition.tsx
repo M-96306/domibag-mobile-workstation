@@ -1,110 +1,100 @@
-
-import { CheckCircle, X, AlertTriangle } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { motion } from 'framer-motion';
+import { CheckCircle, X } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
 
 const competitors = [
   {
     name: "Mala Convencional",
-    pros: ["Limitada a transporte manual"],
-    cons: [
-      "Pesada, sem compartimentação otimizada",
-      "Não oferece condições para procedimentos"
-    ]
+    cons: ["Pesada", "Sem compartimentação", "Sem ergonomia"]
   },
   {
     name: "Carrinhos Hospitalares", 
-    pros: ["Boa organização e superfície de trabalho"],
-    cons: [
-      "Não são portáteis",
-      "Inviáveis em ambientes domiciliários"
-    ]
+    cons: ["Não portáteis", "Inviáveis em domicílio", "Sem mobilidade"]
   },
   {
-    name: "Mochilas Profissionais",
-    pros: ["Maior mobilidade"],
-    cons: [
-      "Falta de estrutura rígida",
-      "Não criam ambiente de trabalho seguro"
-    ]
+    name: "Mochilas",
+    cons: ["Sem estrutura rígida", "Sem superfície de trabalho", "Desorganização"]
   }
 ];
 
 const advantages = [
-  { title: "Mobilidade Autónoma", desc: "Capacidade de subir escadas e atravessar pisos irregulares" },
-  { title: "Estação de Trabalho", desc: "Cria condições clínicas adequadas no domicílio" },
-  { title: "Superfícies Esterilizáveis", desc: "Respeito pelas normas de higiene e segurança" },
-  { title: "Gestão Digital de Stock", desc: "Controlo eficiente e em tempo real" },
-  { title: "Modularidade", desc: "Adaptação às diferentes especialidades" }
+  "Sobe escadas autonomamente",
+  "Estação de trabalho ajustável",
+  "Superfícies esterilizáveis",
+  "Gestão digital de stock",
+  "Sistema modular adaptável"
 ];
 
 export const Competition = () => {
   return (
-    <section className="py-24 bg-white">
+    <section className="section-padding bg-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium badge-warning mb-4">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-bold badge-warning mb-6">
             Análise Competitiva
           </span>
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Análise da Concorrência
+          <h2 className="font-black text-foreground mb-6">
+            <span className="gradient-text">Concorrência</span>
           </h2>
-        </div>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-3 gap-6 mb-12">
-          {competitors.map((competitor, index) => (
-            <Card key={index} className="clinical-card shadow-soft">
-              <CardHeader className="border-b border-border">
-                <CardTitle className="text-lg text-center text-foreground">{competitor.name}</CardTitle>
-              </CardHeader>
-              <CardContent className="p-6 space-y-4">
-                <div>
-                  <h4 className="font-medium text-clinical-success mb-2 flex items-center gap-2 text-sm">
-                    <CheckCircle className="h-4 w-4" />
-                    Pontos Positivos
-                  </h4>
-                  <ul className="space-y-1">
-                    {competitor.pros.map((pro, idx) => (
-                      <li key={idx} className="text-sm text-muted-foreground pl-6">• {pro}</li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div>
-                  <h4 className="font-medium text-clinical-danger mb-2 flex items-center gap-2 text-sm">
-                    <X className="h-4 w-4" />
-                    Limitações
-                  </h4>
-                  <ul className="space-y-1">
-                    {competitor.cons.map((con, idx) => (
-                      <li key={idx} className="text-sm text-muted-foreground pl-6">• {con}</li>
-                    ))}
-                  </ul>
+        {/* Competitors */}
+        <motion.div 
+          className="grid md:grid-cols-3 gap-6 mb-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          {competitors.map((comp, index) => (
+            <Card key={index} className="clinical-card shadow-soft border-red-100">
+              <CardContent className="p-6">
+                <h3 className="text-lg font-bold text-foreground mb-4 text-center">{comp.name}</h3>
+                <div className="space-y-2">
+                  {comp.cons.map((con, idx) => (
+                    <div key={idx} className="flex items-center gap-2 text-red-600">
+                      <X className="h-4 w-4 flex-shrink-0" />
+                      <span className="text-sm font-medium">{con}</span>
+                    </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
           ))}
-        </div>
+        </motion.div>
 
-        <Card className="clinical-card shadow-soft-lg border-2 border-clinical-success bg-green-50/50">
-          <CardHeader className="border-b border-green-100">
-            <CardTitle className="text-xl text-center text-clinical-success">
-              Vantagens Competitivas da Domibag
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="p-6">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {advantages.map((advantage, index) => (
-                <div key={index} className="flex items-start gap-3 p-4 bg-white rounded-lg border border-green-100 shadow-soft">
-                  <CheckCircle className="h-5 w-5 text-clinical-success mt-0.5 flex-shrink-0" />
-                  <div>
-                    <span className="text-foreground font-medium block">{advantage.title}</span>
-                    <span className="text-muted-foreground text-sm">{advantage.desc}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+        {/* Domibag Advantages */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+        >
+          <Card className="clinical-card shadow-soft-lg border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 to-white">
+            <CardContent className="p-8">
+              <h3 className="text-2xl font-black text-emerald-600 mb-6 text-center">
+                Vantagens da Domibag
+              </h3>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {advantages.map((adv, idx) => (
+                  <motion.div 
+                    key={idx}
+                    className="flex items-center gap-3 p-4 bg-white rounded-xl border border-emerald-100 shadow-soft"
+                    whileHover={{ scale: 1.02 }}
+                  >
+                    <div className="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0">
+                      <CheckCircle className="h-5 w-5 text-white" />
+                    </div>
+                    <span className="text-foreground font-bold text-sm">{adv}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
       </div>
     </section>
   );

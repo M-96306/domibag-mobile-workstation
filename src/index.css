@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,14 +10,14 @@
   :root {
     /* Pure White Base - Clinical Hygiene */
     --background: 0 0% 100%;
-    --foreground: 220 20% 20%;
+    --foreground: 220 25% 10%;
 
     /* Card with subtle warmth */
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 20%;
+    --card-foreground: 220 25% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 20%;
+    --popover-foreground: 220 25% 10%;
 
     /* Primary - Clinical Blue */
     --primary: 217 91% 60%;
@@ -25,11 +25,11 @@
 
     /* Secondary - Metallic Gray */
     --secondary: 220 14% 96%;
-    --secondary-foreground: 220 20% 30%;
+    --secondary-foreground: 220 25% 20%;
 
     /* Muted - Soft Gray */
     --muted: 220 14% 96%;
-    --muted-foreground: 220 10% 50%;
+    --muted-foreground: 220 10% 45%;
 
     /* Accent - Light Blue */
     --accent: 217 91% 97%;
@@ -53,15 +53,15 @@
     --input: 220 14% 90%;
     --ring: 217 91% 60%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     /* Sidebar */
     --sidebar-background: 220 14% 98%;
-    --sidebar-foreground: 220 20% 30%;
+    --sidebar-foreground: 220 25% 20%;
     --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 220 14% 96%;
-    --sidebar-accent-foreground: 220 20% 30%;
+    --sidebar-accent-foreground: 220 25% 20%;
     --sidebar-border: 220 14% 90%;
     --sidebar-ring: 217 91% 60%;
 
@@ -72,41 +72,41 @@
   }
 
   .dark {
-    --background: 220 20% 8%;
+    --background: 220 25% 6%;
     --foreground: 0 0% 98%;
 
-    --card: 220 20% 10%;
+    --card: 220 25% 8%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 220 20% 10%;
+    --popover: 220 25% 8%;
     --popover-foreground: 0 0% 98%;
 
     --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 14% 20%;
+    --secondary: 220 14% 15%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 220 14% 20%;
+    --muted: 220 14% 15%;
     --muted-foreground: 220 10% 60%;
 
-    --accent: 220 14% 20%;
+    --accent: 220 14% 15%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62% 50%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 220 14% 20%;
-    --input: 220 14% 20%;
+    --border: 220 14% 15%;
+    --input: 220 14% 15%;
     --ring: 217 91% 60%;
     
-    --sidebar-background: 220 20% 10%;
+    --sidebar-background: 220 25% 8%;
     --sidebar-foreground: 0 0% 98%;
     --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 14% 20%;
+    --sidebar-accent: 220 14% 15%;
     --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 220 14% 20%;
+    --sidebar-border: 220 14% 15%;
     --sidebar-ring: 217 91% 60%;
   }
 }
@@ -118,6 +118,7 @@
 
   html {
     font-family: 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -126,7 +127,16 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
+    @apply font-black tracking-tight;
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    @apply text-5xl md:text-6xl lg:text-7xl;
+  }
+
+  h2 {
+    @apply text-4xl md:text-5xl;
   }
 
   p {
@@ -137,60 +147,65 @@
 @layer components {
   /* Clinical Card Style */
   .clinical-card {
-    @apply bg-white rounded-lg border border-border shadow-sm hover:shadow-md transition-shadow duration-300;
+    @apply bg-white rounded-xl border border-border shadow-soft hover:shadow-soft-lg transition-all duration-300;
   }
 
   /* Status Badges */
   .badge-success {
-    @apply bg-green-100 text-green-700 border border-green-200;
+    @apply bg-emerald-50 text-emerald-700 border border-emerald-200;
   }
 
   .badge-warning {
-    @apply bg-yellow-100 text-yellow-700 border border-yellow-200;
+    @apply bg-amber-50 text-amber-700 border border-amber-200;
   }
 
   .badge-danger {
-    @apply bg-red-100 text-red-700 border border-red-200;
+    @apply bg-red-50 text-red-700 border border-red-200;
   }
 
   .badge-info {
-    @apply bg-blue-100 text-blue-700 border border-blue-200;
+    @apply bg-blue-50 text-blue-700 border border-blue-200;
   }
 
-  /* Timeline Styles */
-  .timeline-node-completed {
-    @apply bg-green-500 border-green-600;
-  }
-
-  .timeline-node-current {
-    @apply bg-blue-500 border-blue-600 ring-4 ring-blue-100;
-  }
-
-  .timeline-node-pending {
-    @apply bg-gray-200 border-gray-300;
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500;
   }
 
   /* Industrial texture */
   .industrial-texture {
     background-image: 
-      linear-gradient(90deg, transparent 50%, rgba(0,0,0,0.01) 50%),
-      linear-gradient(transparent 50%, rgba(0,0,0,0.01) 50%);
-    background-size: 4px 4px;
+      radial-gradient(circle at 1px 1px, rgba(0,0,0,0.03) 1px, transparent 0);
+    background-size: 24px 24px;
   }
 
   /* Soft shadow for cards */
   .soft-shadow {
     box-shadow: 
-      0 1px 3px 0 rgba(0, 0, 0, 0.04),
-      0 4px 6px -1px rgba(0, 0, 0, 0.04),
-      0 8px 15px -3px rgba(0, 0, 0, 0.04);
+      0 1px 2px 0 rgba(0, 0, 0, 0.03),
+      0 2px 4px 0 rgba(0, 0, 0, 0.03),
+      0 4px 8px 0 rgba(0, 0, 0, 0.03);
   }
 
   .soft-shadow-lg {
     box-shadow: 
       0 4px 6px -1px rgba(0, 0, 0, 0.05),
-      0 10px 20px -3px rgba(0, 0, 0, 0.06),
-      0 20px 40px -4px rgba(0, 0, 0, 0.06);
+      0 10px 15px -3px rgba(0, 0, 0, 0.05),
+      0 20px 25px -5px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Section padding */
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+
+  /* Hero gradient overlay */
+  .hero-gradient {
+    background: linear-gradient(135deg, 
+      rgba(59, 130, 246, 0.05) 0%, 
+      rgba(255, 255, 255, 0) 50%,
+      rgba(16, 185, 129, 0.03) 100%
+    );
   }
 }
 
@@ -201,6 +216,25 @@ html {
 
 /* Selection color */
 ::selection {
-  background-color: hsl(217 91% 60% / 0.2);
-  color: hsl(217 91% 40%);
+  background-color: hsl(217 91% 60% / 0.15);
+  color: hsl(217 91% 35%);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--secondary));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
 }

@@ -9,8 +9,7 @@ import { BusinessModel } from '@/components/pitch/BusinessModel';
 import { Marketing } from '@/components/pitch/Marketing';
 import { Roadmap } from '@/components/pitch/Roadmap';
 import { Team } from '@/components/pitch/Team';
-import { ContactForms } from '@/components/pitch/ContactForms';
-import { Contact } from '@/components/pitch/Contact';
+import { ContactForms, Contact } from '@/components/pitch/ContactForms';
 
 const PitchDeck = () => {
   return (
