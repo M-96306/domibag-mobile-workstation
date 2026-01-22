@@ -1,231 +1,152 @@
-
-import { Factory, Globe, Truck, CreditCard, GraduationCap, Smartphone, Calendar } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { motion } from 'framer-motion';
+import { Factory, Globe, Truck, CreditCard, GraduationCap, Smartphone } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
-const timelineData = [
-  {
-    year: "Ano 1",
-    status: "current",
-    items: [
-      "Conclusão da prototipagem",
-      "Processo de certificação regulamentar",
-      "Estabelecimento de parcerias de fabrico"
-    ]
-  },
-  {
-    year: "Ano 2",
-    status: "pending",
-    items: [
-      "Implementação de projetos-piloto",
-      "Início das primeiras vendas nacionais",
-      "Consolidação da rede de distribuição"
-    ]
-  },
-  {
-    year: "Ano 3",
-    status: "pending",
-    items: [
-      "Expansão das vendas a nível nacional",
-      "Entrada estratégica no mercado europeu",
-      "Lançamento de novas funcionalidades digitais"
-    ]
-  }
+const operations = [
+  { icon: Factory, title: "Produção", desc: "Parcerias com fábricas especializadas", color: "bg-blue-500" },
+  { icon: Globe, title: "Vendas", desc: "Website + Distribuidores médicos", color: "bg-emerald-500" },
+  { icon: Truck, title: "Logística", desc: "Entregas nacionais rápidas", color: "bg-amber-500" }
+];
+
+const timeline = [
+  { year: "Ano 1", status: "current", items: ["Prototipagem", "Certificação", "Parcerias"] },
+  { year: "Ano 2", status: "next", items: ["Pilotos", "Vendas nacionais", "Distribuição"] },
+  { year: "Ano 3", status: "next", items: ["Expansão", "Europa", "Funcionalidades digitais"] }
 ];
 
 export const BusinessModel = () => {
   return (
-    <section className="py-24 bg-white">
+    <section className="section-padding bg-slate-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium badge-success mb-4">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <span className="inline-flex items-center px-4 py-1.5 rounded-full text-sm font-bold badge-success mb-6">
             Modelo de Negócio
           </span>
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Modelo de Negócio
+          <h2 className="font-black text-foreground mb-6">
+            Modelo de <span className="gradient-text">Negócio</span>
           </h2>
-        </div>
+        </motion.div>
 
         <Tabs defaultValue="operations" className="max-w-5xl mx-auto">
-          <TabsList className="grid w-full grid-cols-3 mb-8 bg-metallic-light p-1 rounded-lg">
-            <TabsTrigger 
-              value="operations" 
-              className="data-[state=active]:bg-white data-[state=active]:shadow-soft data-[state=active]:text-clinical-info rounded-md transition-all"
-            >
+          <TabsList className="grid w-full grid-cols-3 mb-10 bg-white p-2 rounded-2xl shadow-soft h-auto">
+            <TabsTrigger value="operations" className="py-3 font-bold data-[state=active]:bg-clinical-info data-[state=active]:text-white rounded-xl">
               Operações
             </TabsTrigger>
-            <TabsTrigger 
-              value="services"
-              className="data-[state=active]:bg-white data-[state=active]:shadow-soft data-[state=active]:text-clinical-info rounded-md transition-all"
-            >
+            <TabsTrigger value="services" className="py-3 font-bold data-[state=active]:bg-clinical-info data-[state=active]:text-white rounded-xl">
               Serviços
             </TabsTrigger>
-            <TabsTrigger 
-              value="timeline"
-              className="data-[state=active]:bg-white data-[state=active]:shadow-soft data-[state=active]:text-clinical-info rounded-md transition-all"
-            >
+            <TabsTrigger value="timeline" className="py-3 font-bold data-[state=active]:bg-clinical-info data-[state=active]:text-white rounded-xl">
               Timeline
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="operations" className="space-y-6">
-            <div className="grid md:grid-cols-3 gap-6">
-              <Card className="clinical-card shadow-soft">
-                <CardHeader className="pb-2">
-                  <div className="w-10 h-10 rounded-lg bg-clinical-info flex items-center justify-center mb-3">
-                    <Factory className="h-5 w-5 text-white" />
-                  </div>
-                  <CardTitle className="text-lg">Produção</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">Parcerias com unidades fabris especializadas, garantindo qualidade e escalabilidade.</p>
-                </CardContent>
-              </Card>
-
-              <Card className="clinical-card shadow-soft">
-                <CardHeader className="pb-2">
-                  <div className="w-10 h-10 rounded-lg bg-clinical-success flex items-center justify-center mb-3">
-                    <Globe className="h-5 w-5 text-white" />
-                  </div>
-                  <CardTitle className="text-lg">Canais de Venda</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• Vendas diretas via website</li>
-                    <li>• Parcerias com distribuidores</li>
-                  </ul>
-                </CardContent>
-              </Card>
-
-              <Card className="clinical-card shadow-soft">
-                <CardHeader className="pb-2">
-                  <div className="w-10 h-10 rounded-lg bg-clinical-warning flex items-center justify-center mb-3">
-                    <Truck className="h-5 w-5 text-white" />
-                  </div>
-                  <CardTitle className="text-lg">Distribuição</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">Parcerias com operadores logísticos para entregas rápidas e seguras.</p>
-                </CardContent>
-              </Card>
-            </div>
-
-            <Card className="clinical-card shadow-soft border-l-4 border-l-clinical-info">
-              <CardHeader>
-                <CardTitle className="text-lg text-clinical-info">Modelos de Acesso Flexíveis</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="flex items-start gap-3 p-3 bg-secondary/50 rounded-lg">
-                    <CreditCard className="h-5 w-5 text-clinical-info mt-0.5" />
-                    <div>
-                      <h4 className="font-medium text-foreground text-sm">Venda Direta</h4>
-                      <p className="text-muted-foreground text-sm">Vendas diretas para instituições de saúde.</p>
+          <TabsContent value="operations">
+            <motion.div 
+              className="space-y-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+            >
+              <div className="grid md:grid-cols-3 gap-6">
+                {operations.map((op, idx) => (
+                  <Card key={idx} className="clinical-card shadow-soft">
+                    <CardContent className="p-6 text-center">
+                      <div className={`w-14 h-14 ${op.color} rounded-2xl flex items-center justify-center mx-auto mb-4`}>
+                        <op.icon className="h-7 w-7 text-white" />
+                      </div>
+                      <h4 className="font-bold text-foreground mb-2">{op.title}</h4>
+                      <p className="text-sm text-muted-foreground">{op.desc}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+              
+              <Card className="clinical-card shadow-soft border-l-4 border-l-clinical-info">
+                <CardContent className="p-6">
+                  <h4 className="font-bold text-clinical-info mb-4">Modelos de Acesso</h4>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="flex items-center gap-3 p-4 bg-blue-50 rounded-xl">
+                      <CreditCard className="h-5 w-5 text-clinical-info" />
+                      <div>
+                        <p className="font-bold text-foreground text-sm">Venda Direta</p>
+                        <p className="text-muted-foreground text-xs">Instituições de saúde</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 p-4 bg-blue-50 rounded-xl">
+                      <CreditCard className="h-5 w-5 text-clinical-info" />
+                      <div>
+                        <p className="font-bold text-foreground text-sm">Leasing</p>
+                        <p className="text-muted-foreground text-xs">Serviços comunitários</p>
+                      </div>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3 p-3 bg-secondary/50 rounded-lg">
-                    <CreditCard className="h-5 w-5 text-clinical-info mt-0.5" />
-                    <div>
-                      <h4 className="font-medium text-foreground text-sm">Leasing / Aluguer</h4>
-                      <p className="text-muted-foreground text-sm">Modelos adaptados a serviços comunitários.</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </motion.div>
           </TabsContent>
 
-          <TabsContent value="services" className="space-y-6">
-            <div className="grid md:grid-cols-2 gap-6">
+          <TabsContent value="services">
+            <motion.div 
+              className="grid md:grid-cols-2 gap-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+            >
               <Card className="clinical-card shadow-soft">
-                <CardHeader>
-                  <div className="w-10 h-10 rounded-lg bg-clinical-warning flex items-center justify-center mb-3">
-                    <GraduationCap className="h-5 w-5 text-white" />
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-amber-500 rounded-2xl flex items-center justify-center mb-4">
+                    <GraduationCap className="h-6 w-6 text-white" />
                   </div>
-                  <CardTitle className="text-lg">Serviços Complementares</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <div className="p-3 bg-secondary/50 rounded-lg">
-                    <h4 className="font-medium text-foreground text-sm mb-1">Formação Especializada</h4>
-                    <p className="text-muted-foreground text-sm">Formação incluída para correta utilização.</p>
-                  </div>
-                  <div className="p-3 bg-secondary/50 rounded-lg">
-                    <h4 className="font-medium text-foreground text-sm mb-1">Apoio Técnico</h4>
-                    <p className="text-muted-foreground text-sm">Suporte técnico e acompanhamento pós-venda.</p>
-                  </div>
+                  <h4 className="font-bold text-foreground mb-2">Formação</h4>
+                  <p className="text-sm text-muted-foreground">Formação especializada incluída no pacote</p>
                 </CardContent>
               </Card>
-
+              
               <Card className="clinical-card shadow-soft">
-                <CardHeader>
-                  <div className="w-10 h-10 rounded-lg bg-clinical-info flex items-center justify-center mb-3">
-                    <Smartphone className="h-5 w-5 text-white" />
+                <CardContent className="p-6">
+                  <div className="w-12 h-12 bg-clinical-info rounded-2xl flex items-center justify-center mb-4">
+                    <Smartphone className="h-6 w-6 text-white" />
                   </div>
-                  <CardTitle className="text-lg">Soluções Digitais</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-sm">Licenciamento da aplicação de gestão de stock para utilização autónoma e integração com sistemas internos.</p>
+                  <h4 className="font-bold text-foreground mb-2">App de Gestão</h4>
+                  <p className="text-sm text-muted-foreground">Licenciamento da aplicação de stock</p>
                 </CardContent>
               </Card>
-            </div>
-
-            <Card className="clinical-card shadow-soft border-l-4 border-l-clinical-info bg-blue-50/50">
-              <CardContent className="p-6">
-                <div className="flex items-center gap-3">
-                  <span className="px-3 py-1 rounded-full text-xs font-medium badge-info">Fase Atual</span>
-                  <p className="text-foreground text-sm">
-                    Estamos em <strong>fase de pré-venda</strong>, focados na captação de interesse e preparação da produção inicial.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+            </motion.div>
           </TabsContent>
 
           <TabsContent value="timeline">
-            <div className="space-y-4">
-              {timelineData.map((period, index) => (
-                <Card 
-                  key={index} 
-                  className={`clinical-card shadow-soft border-l-4 ${
-                    period.status === 'current' 
-                      ? 'border-l-clinical-info bg-blue-50/30' 
-                      : 'border-l-metallic-medium'
-                  }`}
-                >
-                  <CardHeader className="pb-2">
-                    <div className="flex items-center gap-3">
-                      <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                        period.status === 'current' 
-                          ? 'bg-clinical-info' 
-                          : 'bg-metallic-medium'
-                      }`}>
-                        <Calendar className="h-4 w-4 text-white" />
+            <motion.div 
+              className="space-y-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+            >
+              {timeline.map((t, idx) => (
+                <Card key={idx} className={`clinical-card shadow-soft border-l-4 ${t.status === 'current' ? 'border-l-clinical-info bg-blue-50/30' : 'border-l-slate-300'}`}>
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-4">
+                      <div className={`w-12 h-12 rounded-xl ${t.status === 'current' ? 'bg-clinical-info' : 'bg-slate-300'} flex items-center justify-center`}>
+                        <span className="text-white font-black">{idx + 1}</span>
                       </div>
-                      <CardTitle className={`text-lg ${
-                        period.status === 'current' ? 'text-clinical-info' : 'text-foreground'
-                      }`}>
-                        {period.year}
-                      </CardTitle>
-                      {period.status === 'current' && (
-                        <span className="px-2 py-0.5 rounded text-xs font-medium badge-info">Em curso</span>
-                      )}
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-1">
+                          <h4 className={`font-bold ${t.status === 'current' ? 'text-clinical-info' : 'text-foreground'}`}>{t.year}</h4>
+                          {t.status === 'current' && <span className="text-xs font-bold badge-info px-2 py-0.5 rounded">Em curso</span>}
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {t.items.map((item, i) => (
+                            <span key={i} className="text-xs bg-white px-3 py-1 rounded-full text-muted-foreground border">{item}</span>
+                          ))}
+                        </div>
+                      </div>
                     </div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2 ml-11">
-                      {period.items.map((item, idx) => (
-                        <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <div className={`w-1.5 h-1.5 rounded-full ${
-                            period.status === 'current' ? 'bg-clinical-info' : 'bg-metallic-medium'
-                          }`}></div>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
                   </CardContent>
                 </Card>
               ))}
-            </div>
+            </motion.div>
           </TabsContent>
         </Tabs>
       </div>
