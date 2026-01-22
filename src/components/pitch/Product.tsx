@@ -1,19 +1,8 @@
 import { motion } from 'framer-motion';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent } from '@/components/ui/card';
-import { Settings, Navigation, CheckCircle } from 'lucide-react';
+import { Settings, Navigation, CheckCircle, Layers } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useState } from 'react';
-
-const productImages = {
-  workstation: [
-    "/lovable-uploads/c4518924-fdaf-4c51-969a-ff13133b69ef.png",
-    "/lovable-uploads/2221985b-4ec6-4831-8805-19230a064567.png"
-  ],
-  mobility: [
-    "/lovable-uploads/0ba8a44e-963e-406d-8a4f-0ffa0f4b3083.png",
-    "/lovable-uploads/dff9f5d5-7925-4c94-bae9-a915080bd92f.png"
-  ]
-};
 
 const features = {
   workstation: {
@@ -26,11 +15,21 @@ const features = {
       "Design ergonómico anti-fadiga"
     ]
   },
+  modular: {
+    title: "Sistema Modular",
+    subtitle: "Flexibilidade total",
+    items: [
+      "Separa-se em módulos independentes",
+      "Transporte seletivo conforme necessidade",
+      "Personalização por especialidade",
+      "Montagem e desmontagem rápida"
+    ]
+  },
   mobility: {
     title: "Mobilidade Avançada",
     subtitle: "Vai onde você precisa",
     items: [
-      "Rodas triangulares para escadas",
+      "Auxilia a subir escadas com as rodas triangulares posteriores",
       "Sistema de travagem seguro",
       "Peso otimizado (< 8kg)",
       "Estabilidade garantida"
@@ -61,14 +60,21 @@ export const Product = () => {
           </p>
         </motion.div>
 
-        <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as keyof typeof features)} className="max-w-6xl mx-auto">
-          <TabsList className="grid w-full grid-cols-2 mb-12 bg-white p-2 rounded-2xl shadow-soft h-auto">
+        <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as keyof typeof features)} className="max-w-4xl mx-auto">
+          <TabsList className="grid w-full grid-cols-3 mb-12 bg-white p-2 rounded-2xl shadow-soft h-auto">
             <TabsTrigger 
               value="workstation" 
               className="flex items-center gap-2 py-4 data-[state=active]:bg-clinical-info data-[state=active]:text-white rounded-xl transition-all font-bold"
             >
               <Settings className="h-5 w-5" />
               <span className="hidden sm:inline">Estação</span>
+            </TabsTrigger>
+            <TabsTrigger 
+              value="modular" 
+              className="flex items-center gap-2 py-4 data-[state=active]:bg-clinical-info data-[state=active]:text-white rounded-xl transition-all font-bold"
+            >
+              <Layers className="h-5 w-5" />
+              <span className="hidden sm:inline">Modular</span>
             </TabsTrigger>
             <TabsTrigger 
               value="mobility" 
@@ -82,47 +88,28 @@ export const Product = () => {
           {(Object.keys(features) as Array<keyof typeof features>).map((key) => (
             <TabsContent key={key} value={key}>
               <motion.div 
-                className="grid lg:grid-cols-2 gap-8 items-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
               >
-                {/* Images */}
-                <div className="grid grid-cols-2 gap-4">
-                  {productImages[key].map((img, idx) => (
-                    <motion.div 
-                      key={idx}
-                      className="bg-white rounded-2xl p-4 shadow-soft hover:shadow-soft-lg transition-all duration-300"
-                      whileHover={{ scale: 1.02 }}
-                    >
-                      <img 
-                        src={img} 
-                        alt={`${features[key].title} - ${idx + 1}`}
-                        className="w-full h-auto rounded-xl"
-                      />
-                    </motion.div>
-                  ))}
-                </div>
-                
-                {/* Content */}
                 <Card className="clinical-card shadow-soft-lg">
                   <CardContent className="p-8">
-                    <h3 className="text-2xl font-black text-foreground mb-2">
+                    <h3 className="text-2xl font-black text-foreground mb-2 text-center">
                       {features[key].title}
                     </h3>
-                    <p className="text-clinical-info font-semibold mb-6">
+                    <p className="text-clinical-info font-semibold mb-8 text-center">
                       {features[key].subtitle}
                     </p>
-                    <ul className="space-y-4">
+                    <div className="grid sm:grid-cols-2 gap-4">
                       {features[key].items.map((item, idx) => (
-                        <li key={idx} className="flex items-center gap-3">
-                          <div className="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0">
+                        <div key={idx} className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl">
+                          <div className="w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center flex-shrink-0 mt-0.5">
                             <CheckCircle className="h-4 w-4 text-white" />
                           </div>
                           <span className="text-foreground font-medium">{item}</span>
-                        </li>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -141,7 +128,7 @@ export const Product = () => {
             <h3 className="text-3xl font-black mb-4">Proposta Única de Valor</h3>
             <p className="text-xl text-blue-100 leading-relaxed">
               Mobilidade + Ergonomia + Organização Inteligente<br/>
-              <span className="font-bold text-white">Num único dispositivo portátil.</span>
+              <span className="font-bold text-white">Num único dispositivo portátil e modular.</span>
             </p>
           </div>
         </motion.div>

@@ -12,8 +12,6 @@ const drivers = [
   "Descongestionar hospitais",
   "Envelhecimento populacional", 
   "Procura por cuidados domiciliários",
-  "Equipamentos tecnológicos",
-  "Eficiência operacional",
   "Expansão do setor privado"
 ];
 

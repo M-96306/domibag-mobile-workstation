@@ -18,10 +18,9 @@ const competitors = [
 ];
 
 const advantages = [
-  "Sobe escadas autonomamente",
+  "Auxilia a subir escadas",
   "Estação de trabalho ajustável",
   "Superfícies esterilizáveis",
-  "Gestão digital de stock",
   "Sistema modular adaptável"
 ];
 
@@ -78,7 +77,7 @@ export const Competition = () => {
               <h3 className="text-2xl font-black text-emerald-600 mb-6 text-center">
                 Vantagens da Domibag
               </h3>
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {advantages.map((adv, idx) => (
                   <motion.div 
                     key={idx}

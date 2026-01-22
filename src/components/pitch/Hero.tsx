@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, Play } from 'lucide-react';
-import nursePatientImage from '@/assets/nurse-patient-homecare.jpg';
+import { ArrowDown } from 'lucide-react';
+import nursePatientImage from '@/assets/nurse-patient-realistic.jpg';
 
 export const Hero = () => {
   const scrollToNextSection = () => {
@@ -90,7 +90,7 @@ export const Hero = () => {
             </motion.p>
             
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 pt-4"
+              className="pt-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
@@ -102,14 +102,6 @@ export const Hero = () => {
               >
                 Descobrir
                 <ArrowDown className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform" />
-              </Button>
-              <Button 
-                variant="outline"
-                size="lg"
-                className="border-2 border-foreground/20 text-foreground hover:bg-foreground hover:text-white px-8 py-6 text-lg font-bold rounded-xl transition-all duration-300"
-              >
-                <Play className="mr-2 h-5 w-5" />
-                Ver Demo
               </Button>
             </motion.div>
           </motion.div>
