@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { AlertTriangle, Users, TrendingDown, Shield, Navigation, ClipboardX } from 'lucide-react';
+import { AlertTriangle, Users, TrendingDown, Shield, Navigation } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const problems = [
@@ -31,12 +31,6 @@ const problems = [
     icon: Navigation,
     title: "Mobilidade Limitada",
     description: "Escadas e pisos irregulares dificultam o acesso.",
-    status: "warning"
-  },
-  {
-    icon: ClipboardX,
-    title: "Gestão de Stock",
-    description: "Falta de controlo digital causa ruturas e atrasos.",
     status: "warning"
   }
 ];

@@ -1,24 +1,9 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Play } from 'lucide-react';
-import { useState, useEffect } from 'react';
-
-const productImages = [
-  "/lovable-uploads/1b712fde-e281-459c-8231-b6417be7e3f3.png",
-  "/lovable-uploads/02f2aac6-0686-41bf-840a-1525d17c3c28.png",
-  "/lovable-uploads/7ade144f-a467-42e9-8fae-36de94d714d6.png"
-];
+import nursePatientImage from '@/assets/nurse-patient-homecare.jpg';
 
 export const Hero = () => {
-  const [currentImage, setCurrentImage] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % productImages.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
-
   const scrollToNextSection = () => {
     const nextSection = document.querySelector('section:nth-of-type(2)');
     if (nextSection) {
@@ -129,49 +114,26 @@ export const Hero = () => {
             </motion.div>
           </motion.div>
           
-          {/* Product Image Showcase */}
+          {/* Hero Image */}
           <motion.div 
             className="relative"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            {/* Main Image Container */}
-            <div className="relative bg-gradient-to-br from-slate-50 via-white to-blue-50 rounded-3xl p-6 shadow-soft-lg border border-slate-100">
-              {/* Image */}
-              <div className="relative aspect-square overflow-hidden rounded-2xl bg-white">
-                {productImages.map((img, idx) => (
-                  <motion.img
-                    key={img}
-                    src={img}
-                    alt={`Domibag - Vista ${idx + 1}`}
-                    className="absolute inset-0 w-full h-full object-contain p-4"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: idx === currentImage ? 1 : 0 }}
-                    transition={{ duration: 0.5 }}
-                  />
-                ))}
-              </div>
-              
-              {/* Image Navigation Dots */}
-              <div className="flex justify-center gap-2 mt-4">
-                {productImages.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setCurrentImage(idx)}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      idx === currentImage 
-                        ? 'w-8 bg-clinical-info' 
-                        : 'bg-slate-300 hover:bg-slate-400'
-                    }`}
-                  />
-                ))}
-              </div>
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              <img 
+                src={nursePatientImage} 
+                alt="Enfermeira prestando cuidados domiciliários a utente"
+                className="w-full h-auto object-cover"
+              />
+              {/* Overlay gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
             </div>
             
             {/* Floating Feature Cards */}
             <motion.div 
-              className="absolute -left-4 top-1/4 bg-white rounded-xl p-4 shadow-lg border border-slate-100"
+              className="absolute -left-4 bottom-1/4 bg-white rounded-xl p-4 shadow-lg border border-slate-100"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.8 }}
@@ -188,18 +150,18 @@ export const Hero = () => {
             </motion.div>
             
             <motion.div 
-              className="absolute -right-4 bottom-1/3 bg-white rounded-xl p-4 shadow-lg border border-slate-100"
+              className="absolute -right-4 top-1/4 bg-white rounded-xl p-4 shadow-lg border border-slate-100"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1 }}
             >
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-lg bg-clinical-info flex items-center justify-center">
-                  <span className="text-white text-lg">📱</span>
+                  <span className="text-white text-lg">🏠</span>
                 </div>
                 <div>
-                  <p className="font-bold text-foreground text-sm">Stock Digital</p>
-                  <p className="text-muted-foreground text-xs">Gestão em tempo real</p>
+                  <p className="font-bold text-foreground text-sm">Cuidados em Casa</p>
+                  <p className="text-muted-foreground text-xs">Qualidade hospitalar</p>
                 </div>
               </div>
             </motion.div>

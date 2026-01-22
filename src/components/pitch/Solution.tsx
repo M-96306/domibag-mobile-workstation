@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { CheckCircle, Heart, Shield, Zap, Target, Smartphone } from 'lucide-react';
+import { CheckCircle, Heart, Shield, Zap, Target } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const solutions = [
@@ -26,12 +26,6 @@ const solutions = [
     title: "Organização Intuitiva",
     description: "Material organizado para segurança e rapidez",
     gradient: "from-emerald-500 to-teal-500"
-  },
-  {
-    icon: Smartphone,
-    title: "Stock Digital",
-    description: "Controlo em tempo real evita falhas de material",
-    gradient: "from-violet-500 to-purple-500"
   }
 ];
 
@@ -74,7 +68,7 @@ export const Solution = () => {
         </motion.div>
         
         <motion.div 
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -84,13 +78,13 @@ export const Solution = () => {
             <motion.div key={index} variants={itemVariants}>
               <Card className="group h-full clinical-card hover:scale-[1.02] transition-all duration-300">
                 <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
+                  <div className="flex flex-col items-center text-center gap-4">
                     <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${solution.gradient} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                       <solution.icon className="h-7 w-7 text-white" />
                     </div>
                     
                     <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-2">
+                      <div className="flex items-center justify-center gap-2 mb-2">
                         <CheckCircle className="h-4 w-4 text-emerald-500" />
                         <span className="text-xs font-bold text-emerald-600 uppercase tracking-wide">Resolvido</span>
                       </div>

@@ -13,7 +13,7 @@ const drivers = [
   "Envelhecimento populacional", 
   "Procura por cuidados domiciliários",
   "Equipamentos tecnológicos",
-  "Gestão eficiente de inventário",
+  "Eficiência operacional",
   "Expansão do setor privado"
 ];
 
