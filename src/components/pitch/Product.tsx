@@ -31,7 +31,7 @@ const features = {
     items: [
       "Auxilia a subir escadas com as rodas triangulares posteriores",
       "Sistema de travagem seguro",
-      "Peso otimizado (< 8kg)",
+      "Peso otimizado",
       "Estabilidade garantida"
     ]
   }
