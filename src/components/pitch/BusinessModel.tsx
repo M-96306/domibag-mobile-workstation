@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Factory, Globe, Truck, CreditCard, GraduationCap, Smartphone } from 'lucide-react';
+import { Factory, Globe, Truck, CreditCard, GraduationCap } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
@@ -12,7 +12,7 @@ const operations = [
 const timeline = [
   { year: "Ano 1", status: "current", items: ["Prototipagem", "Certificação", "Parcerias"] },
   { year: "Ano 2", status: "next", items: ["Pilotos", "Vendas nacionais", "Distribuição"] },
-  { year: "Ano 3", status: "next", items: ["Expansão", "Europa", "Funcionalidades digitais"] }
+  { year: "Ano 3", status: "next", items: ["Expansão", "Europa", "Novas funcionalidades"] }
 ];
 
 export const BusinessModel = () => {
@@ -92,7 +92,7 @@ export const BusinessModel = () => {
 
           <TabsContent value="services">
             <motion.div 
-              className="grid md:grid-cols-2 gap-6"
+              className="grid md:grid-cols-1 gap-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
@@ -102,17 +102,7 @@ export const BusinessModel = () => {
                     <GraduationCap className="h-6 w-6 text-white" />
                   </div>
                   <h4 className="font-bold text-foreground mb-2">Formação</h4>
-                  <p className="text-sm text-muted-foreground">Formação especializada incluída no pacote</p>
-                </CardContent>
-              </Card>
-              
-              <Card className="clinical-card shadow-soft">
-                <CardContent className="p-6">
-                  <div className="w-12 h-12 bg-clinical-info rounded-2xl flex items-center justify-center mb-4">
-                    <Smartphone className="h-6 w-6 text-white" />
-                  </div>
-                  <h4 className="font-bold text-foreground mb-2">App de Gestão</h4>
-                  <p className="text-sm text-muted-foreground">Licenciamento da aplicação de stock</p>
+                  <p className="text-sm text-muted-foreground">Formação especializada incluída no pacote para maximizar a utilização do equipamento</p>
                 </CardContent>
               </Card>
             </motion.div>

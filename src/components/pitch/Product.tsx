@@ -1,17 +1,13 @@
 import { motion } from 'framer-motion';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent } from '@/components/ui/card';
-import { Settings, Package, Navigation, CheckCircle } from 'lucide-react';
+import { Settings, Navigation, CheckCircle } from 'lucide-react';
 import { useState } from 'react';
 
 const productImages = {
   workstation: [
     "/lovable-uploads/c4518924-fdaf-4c51-969a-ff13133b69ef.png",
     "/lovable-uploads/2221985b-4ec6-4831-8805-19230a064567.png"
-  ],
-  storage: [
-    "/lovable-uploads/68566bc6-4094-49e5-bb0c-807389bf853f.png",
-    "/lovable-uploads/7ade144f-a467-42e9-8fae-36de94d714d6.png"
   ],
   mobility: [
     "/lovable-uploads/0ba8a44e-963e-406d-8a4f-0ffa0f4b3083.png",
@@ -28,16 +24,6 @@ const features = {
       "Superfícies esterilizáveis de alumínio",
       "Tabuleiro amovível e extensível",
       "Design ergonómico anti-fadiga"
-    ]
-  },
-  storage: {
-    title: "Armazenamento Inteligente",
-    subtitle: "Organização que poupa tempo",
-    items: [
-      "Sistema modular personalizável",
-      "Codificação cromática intuitiva",
-      "Compartimentos otimizados",
-      "Integração com QR Code"
     ]
   },
   mobility: {
@@ -76,20 +62,13 @@ export const Product = () => {
         </motion.div>
 
         <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as keyof typeof features)} className="max-w-6xl mx-auto">
-          <TabsList className="grid w-full grid-cols-3 mb-12 bg-white p-2 rounded-2xl shadow-soft h-auto">
+          <TabsList className="grid w-full grid-cols-2 mb-12 bg-white p-2 rounded-2xl shadow-soft h-auto">
             <TabsTrigger 
               value="workstation" 
               className="flex items-center gap-2 py-4 data-[state=active]:bg-clinical-info data-[state=active]:text-white rounded-xl transition-all font-bold"
             >
               <Settings className="h-5 w-5" />
               <span className="hidden sm:inline">Estação</span>
-            </TabsTrigger>
-            <TabsTrigger 
-              value="storage" 
-              className="flex items-center gap-2 py-4 data-[state=active]:bg-clinical-info data-[state=active]:text-white rounded-xl transition-all font-bold"
-            >
-              <Package className="h-5 w-5" />
-              <span className="hidden sm:inline">Stock</span>
             </TabsTrigger>
             <TabsTrigger 
               value="mobility" 
