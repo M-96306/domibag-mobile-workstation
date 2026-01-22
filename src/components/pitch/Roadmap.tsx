@@ -1,13 +1,13 @@
 
 import { CheckCircle, Clock, Target, Rocket } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const phases = [
   {
     status: "completed",
     icon: CheckCircle,
     title: "Concluído",
-    color: "from-green-500 to-emerald-500",
+    color: "bg-clinical-success",
+    borderColor: "border-clinical-success",
     items: [
       "Ideação e desenvolvimento do design técnico",
       "Modelagem em 3D do produto",
@@ -18,7 +18,8 @@ const phases = [
     status: "current",
     icon: Clock,
     title: "Em Curso",
-    color: "from-blue-500 to-indigo-500",
+    color: "bg-clinical-info",
+    borderColor: "border-clinical-info",
     items: [
       "Prototipagem industrial funcional",
       "Planeamento e preparação para a certificação médica",
@@ -29,7 +30,8 @@ const phases = [
     status: "next",
     icon: Target,
     title: "Próximos Passos",
-    color: "from-orange-500 to-red-500",
+    color: "bg-clinical-warning",
+    borderColor: "border-clinical-warning",
     items: [
       "Certificação CE",
       "Realização de testes piloto em instituições parceiras",
@@ -41,51 +43,75 @@ const phases = [
 
 export const Roadmap = () => {
   return (
-    <section className="py-24 bg-gradient-to-br from-slate-50 to-gray-100">
+    <section className="py-24 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-gray-600">Roadmap</span>
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium badge-info mb-4">
+            Plano de Desenvolvimento
+          </span>
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            Roadmap
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             O percurso da Domibag desde a conceção até ao mercado internacional
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {phases.map((phase, index) => (
-            <Card 
-              key={index} 
-              className={`hover:shadow-2xl transition-all duration-500 transform hover:scale-105 ${
-                phase.status === 'current' ? 'ring-2 ring-blue-500 bg-blue-50' : 'bg-white'
-              }`}
-            >
-              <CardHeader>
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${phase.color} flex items-center justify-center mb-4 mx-auto`}>
-                  <phase.icon className="h-8 w-8 text-white" />
+        {/* Timeline - Horizontal on desktop, vertical on mobile */}
+        <div className="max-w-5xl mx-auto">
+          {/* Timeline Line */}
+          <div className="hidden lg:block relative mb-8">
+            <div className="absolute top-6 left-0 right-0 h-1 bg-border rounded-full">
+              <div className="absolute left-0 top-0 h-full w-1/3 bg-clinical-success rounded-full"></div>
+              <div className="absolute left-1/3 top-0 h-full w-1/6 bg-gradient-to-r from-clinical-success to-clinical-info rounded-full"></div>
+            </div>
+            <div className="flex justify-between relative z-10">
+              {phases.map((phase, index) => (
+                <div key={index} className="flex flex-col items-center">
+                  <div className={`w-12 h-12 rounded-full ${phase.color} flex items-center justify-center shadow-lg ${phase.status === 'current' ? 'ring-4 ring-blue-100' : ''}`}>
+                    <phase.icon className="h-6 w-6 text-white" />
+                  </div>
                 </div>
-                <CardTitle className="text-2xl text-center">{phase.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
+              ))}
+            </div>
+          </div>
+
+          {/* Phase Cards */}
+          <div className="grid lg:grid-cols-3 gap-6">
+            {phases.map((phase, index) => (
+              <div 
+                key={index} 
+                className={`bg-white rounded-xl border-2 ${phase.borderColor} p-6 shadow-soft hover:shadow-soft-lg transition-all duration-300 ${
+                  phase.status === 'current' ? 'ring-2 ring-blue-100' : ''
+                }`}
+              >
+                {/* Mobile Icon */}
+                <div className="lg:hidden flex items-center gap-3 mb-4">
+                  <div className={`w-10 h-10 rounded-full ${phase.color} flex items-center justify-center`}>
+                    <phase.icon className="h-5 w-5 text-white" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">{phase.title}</h3>
+                </div>
+                
+                {/* Desktop Title */}
+                <h3 className="hidden lg:block text-xl font-bold text-foreground mb-4 text-center">{phase.title}</h3>
+                
                 <ul className="space-y-3">
                   {phase.items.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${
-                        phase.status === 'completed' ? 'bg-green-500' :
-                        phase.status === 'current' ? 'bg-blue-500' : 'bg-orange-500'
-                      }`}></div>
-                      <span className="text-gray-700 leading-relaxed">{item}</span>
+                      <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${phase.color}`}></div>
+                      <span className="text-muted-foreground text-sm leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>
-              </CardContent>
-            </Card>
-          ))}
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="text-center mt-16">
-          <div className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-slate-600 to-gray-600 rounded-2xl text-white font-bold text-xl shadow-2xl">
-            <Rocket className="mr-3 h-6 w-6" />
+          <div className="inline-flex items-center px-6 py-4 bg-metallic-light border border-border rounded-xl text-foreground font-semibold shadow-soft">
+            <Rocket className="mr-3 h-5 w-5 text-clinical-info" />
             Rumo ao futuro dos cuidados domiciliários
           </div>
         </div>

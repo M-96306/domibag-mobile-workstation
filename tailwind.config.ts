@@ -18,6 +18,9 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,12 +64,31 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Clinical Status Colors
+				clinical: {
+					info: '#3b82f6',
+					success: '#22c55e',
+					warning: '#eab308',
+					danger: '#ef4444',
+				},
+				// Metallic Industrial Tones
+				metallic: {
+					light: '#f5f5f7',
+					medium: '#c9cdd4',
+					dark: '#5c6370',
+					aluminum: '#e8eaed',
 				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			boxShadow: {
+				'soft': '0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 8px 15px -3px rgba(0, 0, 0, 0.04)',
+				'soft-lg': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 10px 20px -3px rgba(0, 0, 0, 0.06), 0 20px 40px -4px rgba(0, 0, 0, 0.06)',
+				'clinical': '0 2px 8px -2px rgba(59, 130, 246, 0.15), 0 4px 12px -4px rgba(59, 130, 246, 0.1)',
 			},
 			keyframes: {
 				'accordion-down': {
@@ -84,11 +106,16 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-soft': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.6' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-soft': 'pulse-soft 2s ease-in-out infinite'
 			}
 		}
 	},

@@ -5,18 +5,21 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 const marketData = [
   {
     icon: Building,
-    title: "45 Unidades Locais de Saúde (ULS)",
-    description: "Com hospitalização domiciliária ativa no setor público"
+    title: "45 Unidades Locais de Saúde",
+    description: "Com hospitalização domiciliária ativa no setor público",
+    value: "45"
   },
   {
     icon: Users,
-    title: "783 Equipas de Cuidados Continuados",
-    description: "Equipas de Cuidados Continuados Integrados (ECCI) no país"
+    title: "783 Equipas ECCI",
+    description: "Equipas de Cuidados Continuados Integrados no país",
+    value: "783"
   },
   {
     icon: Globe,
-    title: "5+ Grandes Grupos Hospitalares",
-    description: "CUF, Luz Saúde, Lusíadas, Trofa Saúde, HPA Saúde com serviços domiciliários"
+    title: "5+ Grupos Hospitalares",
+    description: "CUF, Luz Saúde, Lusíadas, Trofa Saúde, HPA com serviços domiciliários",
+    value: "5+"
   }
 ];
 
@@ -27,79 +30,90 @@ const clientTypes = [
   "Clínicas privadas que prestam cuidados domiciliários especializados"
 ];
 
+const drivers = [
+  "Necessidade de descongestionar hospitais",
+  "Envelhecimento da população e aumento das doenças crónicas", 
+  "Procura crescente por cuidados de qualidade no domicílio",
+  "Valorização de equipamentos ergonómicos e tecnologicamente integrados",
+  "Necessidade de gestão eficiente de inventário",
+  "Expansão do setor privado da saúde em Portugal"
+];
+
 export const Market = () => {
   return (
-    <section className="py-24 bg-gradient-to-br from-blue-50 to-indigo-100">
+    <section className="py-24 bg-secondary/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Mercado e
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600"> Oportunidade</span>
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium badge-info mb-4">
+            Análise de Mercado
+          </span>
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            Mercado e Oportunidade
           </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             A hospitalização domiciliária e os cuidados de saúde no domicílio estão a crescer rapidamente
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Drivers de Crescimento</h3>
-            <div className="space-y-4">
-              {[
-                "Necessidade de descongestionar hospitais",
-                "Envelhecimento da população e aumento das doenças crónicas", 
-                "Procura crescente por cuidados de qualidade no domicílio",
-                "Valorização de equipamentos ergonómicos e tecnologicamente integrados",
-                "Necessidade de gestão eficiente de inventário em contexto domiciliário",
-                "Expansão do setor privado da saúde em Portugal"
-              ].map((driver, index) => (
-                <div key={index} className="flex items-start gap-3 p-4 bg-white/70 rounded-xl">
-                  <TrendingUp className="h-5 w-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-700">{driver}</span>
+        {/* Market Stats */}
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
+          {marketData.map((data, index) => (
+            <Card key={index} className="clinical-card shadow-soft hover:shadow-soft-lg transition-all duration-300 text-center">
+              <CardContent className="p-6">
+                <div className="w-14 h-14 rounded-xl bg-clinical-info mx-auto flex items-center justify-center mb-4">
+                  <data.icon className="h-7 w-7 text-white" />
                 </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Oportunidades em Portugal</h3>
-            <div className="grid gap-6">
-              {marketData.map((data, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow bg-white/80">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-500 flex items-center justify-center flex-shrink-0">
-                        <data.icon className="h-6 w-6 text-white" />
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-gray-900 mb-2">{data.title}</h4>
-                        <p className="text-gray-600 text-sm">{data.description}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
+                <div className="text-3xl font-bold text-clinical-info mb-2">{data.value}</div>
+                <h4 className="font-semibold text-foreground mb-2">{data.title}</h4>
+                <p className="text-muted-foreground text-sm">{data.description}</p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
 
-        <Card className="bg-white/80 hover:shadow-xl transition-shadow">
-          <CardHeader>
-            <CardTitle className="text-2xl text-blue-600 text-center">Clientes-Alvo</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid md:grid-cols-2 gap-6">
-              {clientTypes.map((client, index) => (
-                <div key={index} className="flex items-start gap-3 p-4 bg-blue-50 rounded-xl">
-                  <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-sm">{index + 1}</span>
-                  </div>
-                  <span className="text-gray-700 leading-relaxed">{client}</span>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Growth Drivers */}
+          <Card className="clinical-card shadow-soft">
+            <CardHeader className="border-b border-border">
+              <CardTitle className="text-xl text-foreground flex items-center gap-2">
+                <TrendingUp className="h-5 w-5 text-clinical-success" />
+                Drivers de Crescimento
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="p-6">
+              <ul className="space-y-3">
+                {drivers.map((driver, index) => (
+                  <li key={index} className="flex items-start gap-3 p-3 bg-secondary/50 rounded-lg">
+                    <div className="w-2 h-2 rounded-full bg-clinical-success mt-2 flex-shrink-0"></div>
+                    <span className="text-foreground text-sm">{driver}</span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+
+          {/* Target Clients */}
+          <Card className="clinical-card shadow-soft">
+            <CardHeader className="border-b border-border">
+              <CardTitle className="text-xl text-foreground flex items-center gap-2">
+                <Users className="h-5 w-5 text-clinical-info" />
+                Clientes-Alvo
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="p-6">
+              <ul className="space-y-3">
+                {clientTypes.map((client, index) => (
+                  <li key={index} className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border border-blue-100">
+                    <div className="w-6 h-6 bg-clinical-info rounded-full flex items-center justify-center flex-shrink-0 text-white text-xs font-bold">
+                      {index + 1}
+                    </div>
+                    <span className="text-foreground text-sm leading-relaxed">{client}</span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </section>
   );
