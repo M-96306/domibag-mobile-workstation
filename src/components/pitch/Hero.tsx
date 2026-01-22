@@ -11,41 +11,78 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative overflow-hidden min-h-screen flex items-center text-white">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('/lovable-uploads/d98fb43b-f0fd-4e98-a1f3-7183b1a8708d.png')`
-        }}
-      ></div>
+    <section className="relative overflow-hidden min-h-screen flex items-center bg-white">
+      {/* Subtle Industrial Pattern */}
+      <div className="absolute inset-0 industrial-texture opacity-30"></div>
       
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/90 via-green-700/85 to-emerald-800/80"></div>
-      
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+      {/* Accent Gradient */}
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-50/50 to-transparent"></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-        <div className="text-center space-y-6 sm:space-y-8 animate-in slide-in-from-bottom duration-1000">
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-tight">
-            Domibag
-            <span className="text-emerald-200">™</span>
-          </h1>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-8">
+            {/* Status Badge */}
+            <div className="inline-flex items-center px-4 py-2 bg-blue-50 border border-blue-100 rounded-full text-clinical-info font-medium text-sm">
+              <span className="w-2 h-2 bg-clinical-success rounded-full mr-2 animate-pulse-soft"></span>
+              Inovação em Cuidados Domiciliários
+            </div>
+            
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground">
+              Domibag
+              <span className="text-clinical-info">™</span>
+            </h1>
+            
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-muted-foreground leading-relaxed">
+              A Nova Geração de Mobilidade para Cuidados Domiciliários
+            </h2>
+            
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
+              Uma solução inovadora que combina mobilidade, ergonomia e organização numa única plataforma portátil, desenvolvida para profissionais de saúde.
+            </p>
+            
+            <div className="pt-4">
+              <Button 
+                onClick={scrollToNextSection}
+                size="lg"
+                className="bg-clinical-info hover:bg-blue-600 text-white px-8 py-6 text-lg font-semibold rounded-lg shadow-clinical transition-all duration-300 hover:shadow-lg"
+              >
+                Descobrir Mais
+                <ArrowDown className="ml-2 h-5 w-5" />
+              </Button>
+            </div>
+          </div>
           
-          <h2 className="text-xl sm:text-2xl lg:text-4xl font-semibold text-emerald-100 max-w-4xl mx-auto leading-relaxed px-4">
-            A Nova Geração de Mobilidade para Cuidados Domiciliários
-          </h2>
-          
-          <div className="pt-8 sm:pt-12">
-            <Button 
-              onClick={scrollToNextSection}
-              variant="outline" 
-              size="lg"
-              className="bg-white text-emerald-600 hover:bg-emerald-50 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300"
-            >
-              Saber mais
-            </Button>
+          <div className="relative">
+            {/* Product Image with Industrial Frame */}
+            <div className="relative bg-gradient-to-br from-metallic-light to-metallic-aluminum rounded-2xl p-8 shadow-soft-lg">
+              <div className="absolute top-4 left-4 flex gap-2">
+                <div className="w-3 h-3 rounded-full bg-clinical-success"></div>
+                <div className="w-3 h-3 rounded-full bg-clinical-warning"></div>
+                <div className="w-3 h-3 rounded-full bg-clinical-danger"></div>
+              </div>
+              <img 
+                src="/lovable-uploads/d98fb43b-f0fd-4e98-a1f3-7183b1a8708d.png"
+                alt="Domibag - Estação de Trabalho Móvel"
+                className="w-full h-auto rounded-lg"
+              />
+              {/* QR Code Badge */}
+              <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-lg shadow-soft border border-border">
+                <div className="flex items-center gap-2 text-sm font-medium text-foreground">
+                  <div className="w-6 h-6 bg-foreground rounded grid grid-cols-3 gap-0.5 p-1">
+                    <div className="bg-white rounded-sm"></div>
+                    <div className="bg-white rounded-sm"></div>
+                    <div className="bg-foreground rounded-sm"></div>
+                    <div className="bg-white rounded-sm"></div>
+                    <div className="bg-foreground rounded-sm"></div>
+                    <div className="bg-white rounded-sm"></div>
+                    <div className="bg-foreground rounded-sm"></div>
+                    <div className="bg-white rounded-sm"></div>
+                    <div className="bg-white rounded-sm"></div>
+                  </div>
+                  Stock Digital
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
